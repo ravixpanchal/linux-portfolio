@@ -117,12 +117,15 @@ export class CommandProcessor {
           type: 'help',
           commands: [
             { cmd: 'help', desc: 'Display help overview and available command list' },
+            { cmd: 'recruiter', desc: 'Open 1-Click Executive Visual Recruiter View' },
+            { cmd: 'theme [name]', desc: 'Change terminal theme (yaru, matrix, dracula, nord, cyberpunk)' },
+            { cmd: 'matrix', desc: 'Trigger full-screen Matrix digital rain effect' },
             { cmd: 'guide', desc: 'Interactive step-by-step portfolio tour' },
             { cmd: 'ls [dir]', desc: 'List directory files and folders' },
             { cmd: 'cd <dir>', desc: 'Change current virtual directory' },
             { cmd: 'pwd', desc: 'Print working directory path' },
             { cmd: 'cat <file>', desc: 'Read content of a file or project card' },
-            { cmd: 'grep -i "query" [file]', desc: 'Search for text patterns in files' },
+            { cmd: 'grep -i "query"', desc: 'Search for text patterns in files' },
             { cmd: 'find [name]', desc: 'Recursively search files and directories' },
             { cmd: 'intro', desc: 'Display Ravi Panchal intro & summary' },
             { cmd: 'projects', desc: 'View full featured software projects' },
@@ -130,7 +133,9 @@ export class CommandProcessor {
             { cmd: 'skills', desc: 'View technical skills & AI/ML stack' },
             { cmd: 'education', desc: 'View academic background & CGPA' },
             { cmd: 'stories', desc: 'View project architectural deep dives' },
-            { cmd: 'coding', desc: 'View competitive programming stats' },
+            { cmd: 'coding', desc: 'View live GitHub & LeetCode statistics & heatmap' },
+            { cmd: 'github', desc: 'Display live GitHub activity calendar & repos' },
+            { cmd: 'leetcode', desc: 'Display LeetCode problem solve breakdown' },
             { cmd: 'achievements', desc: 'View awards, certifications & paper' },
             { cmd: 'activities', desc: 'View leadership & community work' },
             { cmd: 'blogs', desc: 'View technical articles & publications' },
@@ -144,16 +149,41 @@ export class CommandProcessor {
           ]
         };
 
+      case 'recruiter':
+        return {
+          type: 'open_recruiter_modal'
+        };
+
+      case 'theme': {
+        const themeName = args[0] ? args[0].toLowerCase() : '';
+        const validThemes = ['yaru', 'matrix', 'dracula', 'nord', 'cyberpunk'];
+        if (!themeName || !validThemes.includes(themeName)) {
+          return {
+            type: 'text',
+            content: `Available themes:\n  • yaru (Ubuntu Dark - Default)\n  • matrix (Matrix Green)\n  • dracula (Dracula Purple)\n  • nord (Nord Arctic Blue)\n  • cyberpunk (Cyberpunk Yellow/Pink)\n\nUsage: theme <name>`
+          };
+        }
+        return {
+          type: 'theme_change',
+          theme: themeName
+        };
+      }
+
+      case 'matrix':
+        return {
+          type: 'trigger_matrix'
+        };
+
       case 'guide':
         return {
           type: 'guide',
           content: `Welcome to Ravi Panchal's Interactive Linux Terminal Portfolio! 🐧
 
 Quick Exploration Checklist:
-  1. Type 'intro' to read about my background and specialization.
-  2. Type 'cd projects' then 'ls' and 'cat osteoporosis-ai.txt' to view project highlights.
-  3. Type 'grep -i "RAG" internships/*' to test real pattern searching across files!
-  4. Type 'neofetch' for system specs and developer stats.
+  1. Click '⚡ Recruiter Mode' or type 'recruiter' for a visual 1-page resume overview.
+  2. Type 'intro' to read about my background and specialization.
+  3. Type 'projects' to view projects with live code & demo links!
+  4. Type 'theme matrix' or 'matrix' for interactive visual effects.
   5. Type 'resume' or 'contact' to connect directly with me!`
         };
 
@@ -231,9 +261,11 @@ Quick Exploration Checklist:
         };
 
       case 'coding':
+      case 'github':
+      case 'leetcode':
+      case 'stats':
         return {
-          type: 'coding',
-          data: portfolioData.coding
+          type: 'coding_stats'
         };
 
       case 'achievements':
@@ -281,15 +313,16 @@ Quick Exploration Checklist:
 
       // --- Easter Eggs ---
       case 'sudo':
-        if (args[0] === 'hire' && (args[1] === 'ravi' || args[1] === 'panchal')) {
+        if (args[0] === 'hire' && (!args[1] || args[1] === 'ravi' || args[1] === 'panchal')) {
           return {
             type: 'sudo_hire',
-            content: '[ OK ] Root privileges granted. Initiating onboarding sequence & redirecting to LinkedIn...'
+            data: portfolioData.personal,
+            content: '🎉 ACCESS GRANTED! Candidate status: Open for Full-Time Roles & Internships. Email: ravi.panchal@example.com'
           };
         }
         return {
           type: 'error',
-          content: 'visitor is not in the sudoers file. This incident will be reported.'
+          content: 'visitor is not in the sudoers file. This incident will be reported. Try "sudo hire ravi" 😉'
         };
 
       default:
@@ -300,3 +333,4 @@ Quick Exploration Checklist:
     }
   }
 }
+

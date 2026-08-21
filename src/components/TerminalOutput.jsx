@@ -1,4 +1,5 @@
 import React from 'react';
+import { CodingStatsWidget } from './CodingStatsWidget';
 
 export const TerminalOutput = ({ output }) => {
   if (!output) return null;
@@ -227,7 +228,7 @@ export const TerminalOutput = ({ output }) => {
                   </p>
                 </div>
                 <div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {proj.stack.map((s, sIdx) => (
                       <span
                         key={sIdx}
@@ -236,6 +237,24 @@ export const TerminalOutput = ({ output }) => {
                         {s}
                       </span>
                     ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={proj.githubUrl || 'https://github.com/ravixpanchal'}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-[#502741] hover:bg-[#603050] text-white text-xs font-mono px-3 py-1 rounded border border-[#603050] transition-colors"
+                    >
+                      💻 Code
+                    </a>
+                    <a
+                      href={proj.liveDemoUrl || 'https://github.com/ravixpanchal'}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-[#e95420] hover:bg-[#c33900] text-white text-xs font-mono px-3 py-1 rounded transition-colors"
+                    >
+                      🌐 Live Demo
+                    </a>
                   </div>
                 </div>
               </div>
@@ -360,12 +379,40 @@ export const TerminalOutput = ({ output }) => {
           </div>
         )}
 
+        {result?.type === 'theme_change' && (
+          <div className="text-[#8adb4d] font-bold font-mono text-sm my-2">
+            🎨 Terminal theme switched to: <span className="text-[#f2b5d6] uppercase">{result.theme}</span>
+          </div>
+        )}
+
+        {result?.type === 'open_recruiter_modal' && (
+          <div className="text-[#8adb4d] font-bold font-mono text-sm my-2">
+            ⚡ Opening 1-Click Executive Recruiter Mode...
+          </div>
+        )}
+
+        {result?.type === 'coding_stats' && (
+          <CodingStatsWidget />
+        )}
+
         {result?.type === 'sudo_hire' && (
-          <div className="text-[#8adb4d] font-bold animate-pulse text-sm my-2 font-mono">
-            {result.content}
+          <div className="bg-[#320e26] border-2 border-[#8adb4d] p-4 rounded-lg my-3 font-mono max-w-lg shadow-xl">
+            <div className="text-[#8adb4d] font-bold text-base flex items-center gap-2 mb-1">
+              <span>🎉 PERMISSION GRANTED!</span>
+            </div>
+            <div className="text-white text-xs mb-3">{result.content}</div>
+            <div className="flex gap-2">
+              <a
+                href={`mailto:${result.data.email}`}
+                className="bg-[#e95420] text-white text-xs font-bold px-3 py-1.5 rounded font-sans hover:bg-[#c33900]"
+              >
+                Send Offer / Interview Email
+              </a>
+            </div>
           </div>
         )}
       </div>
     </div>
   );
 };
+

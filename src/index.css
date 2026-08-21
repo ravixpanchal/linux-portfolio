@@ -199,3 +199,53 @@ main.desktop-canvas {
   opacity: 0.2;
   mix-blend-mode: luminosity;
 }
+
+/* --- THEME VARIATIONS --- */
+/* Matrix Theme */
+.theme-matrix .ubuntu-terminal {
+  background-color: #0d1117;
+  border-color: #238636;
+}
+.theme-matrix .terminal-header {
+  background: linear-gradient(to bottom, #161b22, #0d1117);
+  border-bottom-color: #238636;
+}
+.theme-matrix .prompt { color: #3fb950; }
+.theme-matrix .path { color: #58a6ff; }
+
+/* Dracula Theme */
+.theme-dracula .ubuntu-terminal {
+  background-color: #282a36;
+  border-color: #6272a4;
+}
+.theme-dracula .terminal-header {
+  background: linear-gradient(to bottom, #44475a, #282a36);
+  border-bottom-color: #6272a4;
+}
+.theme-dracula .prompt { color: #50fa7b; }
+.theme-dracula .path { color: #ff79c6; }
+
+/* Nord Theme */
+.theme-nord .ubuntu-terminal {
+  background-color: #2e3440;
+  border-color: #4c566a;
+}
+.theme-nord .terminal-header {
+  background: linear-gradient(to bottom, #3b4252, #2e3440);
+  border-bottom-color: #4c566a;
+}
+.theme-nord .prompt { color: #a3be8c; }
+.theme-nord .path { color: #88c0d0; }
+
+/* Cyberpunk Theme */
+.theme-cyberpunk .ubuntu-terminal {
+  background-color: #0b0e14;
+  border-color: #ff0055;
+}
+.theme-cyberpunk .terminal-header {
+  background: linear-gradient(to bottom, #1a1d24, #0b0e14);
+  border-bottom-color: #ff0055;
+}
+.theme-cyberpunk .prompt { color: #fcee0a; }
+.theme-cyberpunk .path { color: #00f0ff; }
+

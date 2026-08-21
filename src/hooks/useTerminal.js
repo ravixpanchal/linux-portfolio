@@ -23,6 +23,11 @@ export const useTerminal = () => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
 
+  // Advanced Visual & Interaction States
+  const [activeTheme, setActiveTheme] = useState('yaru');
+  const [isRecruiterModalOpen, setIsRecruiterModalOpen] = useState(false);
+  const [isMatrixActive, setIsMatrixActive] = useState(false);
+
   const executeCommand = useCallback((cmdStr) => {
     const trimmed = cmdStr.trim();
     if (!trimmed) {
@@ -43,6 +48,18 @@ export const useTerminal = () => {
       if (result.type === 'clear') {
         setHistoryOutput([]);
         return;
+      }
+
+      if (result.type === 'open_recruiter_modal') {
+        setIsRecruiterModalOpen(true);
+      }
+
+      if (result.type === 'theme_change') {
+        setActiveTheme(result.theme);
+      }
+
+      if (result.type === 'trigger_matrix') {
+        setIsMatrixActive(true);
       }
 
       if (result.type === 'cd' && result.newPath) {
@@ -67,7 +84,7 @@ export const useTerminal = () => {
     if (parts.length <= 1) {
       // Complete command names
       const knownCmds = [
-        'help', 'guide', 'ls', 'cd', 'pwd', 'cat', 'grep', 'find',
+        'help', 'recruiter', 'theme', 'matrix', 'guide', 'ls', 'cd', 'pwd', 'cat', 'grep', 'find',
         'intro', 'projects', 'internships', 'skills', 'education',
         'stories', 'coding', 'achievements', 'activities', 'blogs',
         'resume', 'contact', 'neofetch', 'whoami', 'history', 'clear', 'man'
@@ -101,8 +118,15 @@ export const useTerminal = () => {
     commandHistory,
     historyIndex,
     setHistoryIndex,
+    activeTheme,
+    setActiveTheme,
+    isRecruiterModalOpen,
+    setIsRecruiterModalOpen,
+    isMatrixActive,
+    setIsMatrixActive,
     executeCommand,
     handleTabCompletion,
     clearTerminal
   };
 };
+

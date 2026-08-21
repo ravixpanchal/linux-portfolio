@@ -7,12 +7,12 @@ export const CommandSuggestions = ({
   setHistoryIndex
 }) => {
   const suggestions = [
-    { label: 'help', cmd: 'help', icon: 'terminal' },
+    { label: '⚡ Recruiter Mode', cmd: 'recruiter', icon: 'badge', highlight: true },
     { label: 'projects', cmd: 'projects', icon: 'folder_special' },
+    { label: 'resume', cmd: 'resume', icon: 'description' },
     { label: 'skills', cmd: 'skills', icon: 'code' },
     { label: 'internships', cmd: 'internships', icon: 'work' },
-    { label: 'ls', cmd: 'ls', icon: 'account_tree' },
-    { label: 'neofetch', cmd: 'neofetch', icon: 'settings' },
+    { label: 'matrix', cmd: 'matrix', icon: 'terminal' },
     { label: 'contact', cmd: 'contact', icon: 'mail' },
     { label: 'clear', cmd: 'clear', icon: 'cleaning_services' }
   ];
@@ -34,7 +34,7 @@ export const CommandSuggestions = ({
   };
 
   return (
-    <div className="md:hidden bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30 shrink-0">
+    <div className="bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30 shrink-0">
       {commandHistory && commandHistory.length > 0 && (
         <div className="flex items-center gap-1 border-r border-[#603050] pr-2 shrink-0">
           <button
@@ -63,12 +63,13 @@ export const CommandSuggestions = ({
         <button
           key={idx}
           onClick={() => onExecuteCommand(item.cmd)}
-          className="bg-[#37122b] active:bg-[#e95420] border border-[#603050] text-[#e0d0d8] active:text-white px-3 py-1.5 rounded-full text-xs hover:bg-[#502741] transition-all font-mono font-medium flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm"
+          className={`${item.highlight ? 'bg-[#e95420] text-white font-bold' : 'bg-[#37122b] text-[#e0d0d8]'} border border-[#603050] px-3 py-1 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm`}
         >
-          <span className="material-symbols-outlined text-sm text-[#f2b5d6]">{item.icon}</span>
+          <span className="material-symbols-outlined text-sm">{item.icon}</span>
           <span>{item.label}</span>
         </button>
       ))}
     </div>
   );
 };
+

@@ -6,9 +6,10 @@ export const portfolioData = {
     cgpa: "8.42",
     location: "India",
     email: "ravi.panchal@example.com",
-    github: "https://github.com",
+    github: "https://github.com/ravixpanchal",
     linkedin: "https://linkedin.com",
     resumeUrl: "#",
+    status: "🟢 Available for Full-time Roles & Internships",
     bio: "Passionate Fullstack & AI/ML engineer focused on building high-performance scalable web applications, RAG pipelines, computer vision systems, and automated data solutions."
   },
   
@@ -89,6 +90,8 @@ Type 'guide' or 'help' to see all available commands!`,
       category: "Computer Vision & Healthcare",
       stack: ["Python", "TensorFlow", "React", "FastAPI", "OpenCV"],
       desc: "A deep learning model utilizing Convolutional Neural Networks (ResNet-50) to predict osteoporosis risks from digital X-ray scans with high sensitivity.",
+      githubUrl: "https://github.com/ravixpanchal",
+      liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
         "94.2% validation accuracy on clinical dataset.",
         "Interactive web dashboard for radiologists to upload X-rays and view heatmap highlights."
@@ -100,6 +103,8 @@ Type 'guide' or 'help' to see all available commands!`,
       category: "IoT & Computer Vision",
       stack: ["C++", "OpenCV", "Python", "Raspberry Pi", "MQTT"],
       desc: "Edge-computed real-time track anomaly detector equipped with camera sensors mounted on inspection vehicles.",
+      githubUrl: "https://github.com/ravixpanchal",
+      liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
         "Detects track cracks and joint displacement at speeds up to 40 km/h.",
         "Instant alert notifications sent to central control room via MQTT."
@@ -111,6 +116,8 @@ Type 'guide' or 'help' to see all available commands!`,
       category: "Automation & NLP",
       stack: ["Node.js", "Puppeteer", "TypeScript", "OpenAI API"],
       desc: "Smart social media bot for content curation, automated thread summarizing, and sentiment-aware replies.",
+      githubUrl: "https://github.com/ravixpanchal",
+      liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
         "Handles content scheduling, auto-retweets, and sentiment analysis.",
         "Over 10,000 automated interactions processed with zero account flags."
@@ -122,6 +129,8 @@ Type 'guide' or 'help' to see all available commands!`,
       category: "Web & FinTech AI",
       stack: ["React", "Django", "Pandas", "TailwindCSS", "Recharts"],
       desc: "AI-driven tax analytics platform that parses GST invoice datasets to detect tax discrepancies and anomaly patterns.",
+      githubUrl: "https://github.com/ravixpanchal",
+      liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
         "Automated PDF invoice OCR parsing with Tesseract & Regex.",
         "Interactive visual charts for monthly input tax credit reconciliation."
@@ -133,6 +142,8 @@ Type 'guide' or 'help' to see all available commands!`,
       category: "Generative AI & LLMs",
       stack: ["Python", "LangChain", "ChromaDB", "FastAPI", "React"],
       desc: "Hybrid search RAG assistant enabling instant, citation-backed QA over thousands of technical documentation pages.",
+      githubUrl: "https://github.com/ravixpanchal",
+      liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
         "Combines BM25 keyword search with dense vector embeddings.",
         "Sub-second response streaming with strict source attribution."
