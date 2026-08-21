@@ -46,8 +46,42 @@ export const UbuntuTerminal = ({
     }
   };
 
+  const handleScrollTop = (e) => {
+    e.stopPropagation();
+    if (bodyRef.current) {
+      bodyRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollBottom = (e) => {
+    e.stopPropagation();
+    if (bodyRef.current) {
+      bodyRef.current.scrollTo({ top: bodyRef.current.scrollHeight, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="ubuntu-terminal w-full max-w-[1000px] h-full max-h-full min-h-0 md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col overflow-hidden">
+    <div className="ubuntu-terminal w-full max-w-[1000px] h-full max-h-full min-h-0 md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col overflow-hidden relative">
+      {/* Floating Quick Scroll Controls */}
+      <div className="absolute right-3 top-12 z-20 flex flex-col gap-1 opacity-80 hover:opacity-100 transition-opacity">
+        <button
+          onClick={handleScrollTop}
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center"
+          title="Scroll to Top"
+          aria-label="Scroll to Top"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_arrow_up</span>
+        </button>
+        <button
+          onClick={handleScrollBottom}
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center"
+          title="Scroll to Bottom"
+          aria-label="Scroll to Bottom"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+        </button>
+      </div>
+
       {/* Terminal Header */}
       <div className="terminal-header flex-shrink-0">
         <div className="window-controls">

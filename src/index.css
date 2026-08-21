@@ -90,24 +90,36 @@
 
 .terminal-body {
   padding: 16px;
-  overflow-y: auto;
+  overflow-y: scroll;
   flex: 1 1 0%;
   min-height: 0;
   color: #ffffff;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   user-select: text;
+  scrollbar-width: thin;
+  scrollbar-color: #f2b5d6 #1d0316;
 }
 
 .terminal-body::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
+  display: block;
 }
+
 .terminal-body::-webkit-scrollbar-track {
   background: #1d0316;
+  border-radius: 6px;
 }
+
 .terminal-body::-webkit-scrollbar-thumb {
-  background: #603050;
-  border-radius: 4px;
+  background: #f2b5d6;
+  border-radius: 6px;
+  border: 2px solid #300a24;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #e95420;
 }
 
 .prompt {
