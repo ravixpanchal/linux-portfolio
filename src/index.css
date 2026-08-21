@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #28051e;
+  --color-surface: #28051e;
+  --color-surface-dim: #28051e;
+  --color-surface-container: #37122b;
+  --color-surface-container-low: #320e26;
+  --color-surface-container-high: #431c36;
+  --color-surface-container-highest: #502741;
+  --color-surface-container-lowest: #1d0316;
+  --color-surface-variant: #502741;
+  --color-surface-bright: #552b45;
+  --color-primary: #f2b5d6;
+  --color-on-primary: #4c223c;
+  --color-secondary: #ffb59e;
+  --color-secondary-container: #e95420;
+  --color-on-secondary-container: #ffffff;
+  --color-tertiary: #8adb4d;
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #e0d0d8;
+  --color-outline: #9c8d93;
+  --color-outline-variant: #604856;
+  --color-error: #ffb4ab;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Fira Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #11050E;
+    background-image: radial-gradient(circle at center, #28051e 0%, #11050E 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+  }
+}
+
+.ubuntu-terminal {
+  background-color: #300a24;
+  border: 1px solid #603050;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: linear-gradient(to bottom, #431c36, #320e26);
+  border-bottom: 1px solid #11050E;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+}
+
+.window-controls {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: opacity 0.15s ease;
+}
+.control-btn:hover {
+  opacity: 0.85;
+}
+.close-btn { background-color: #E95420; }
+.min-btn { background-color: #AEA79F; }
+.max-btn { background-color: #4E9A06; }
+
+.terminal-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Fira Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.terminal-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex-grow: 1;
+  scroll-behavior: smooth;
+  color: #ffffff;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.terminal-body::-webkit-scrollbar-track {
+  background: #1d0316;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #603050;
+  border-radius: 4px;
+}
+
+.prompt {
+  color: #8adb4d;
+  font-weight: bold;
+}
+
+.path {
+  color: #f2b5d6;
+  font-weight: bold;
+}
+
+.command-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  flex-grow: 1;
+  outline: none;
+  caret-color: #ffffff;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background-color: #ffffff;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.output {
+  margin-bottom: 8px;
+  color: #e0d0d8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ascii-art {
+  color: #ffb59e;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.dir { color: #f2b5d6; font-weight: bold; }
+.file { color: #ffffff; }
+.exec { color: #8adb4d; font-weight: bold; }
+
+main.desktop-canvas {
+  flex: 1;
+  position: relative;
+  padding: 56px 20px 48px 88px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 44px);
+}
+
+@media (max-width: 768px) {
+  main.desktop-canvas {
+    padding: 52px 8px 52px 8px;
+    height: calc(100vh - 44px);
+  }
+  .ubuntu-terminal {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+  }
+  .terminal-body {
+    padding: 10px;
+  }
+  .ascii-art {
+    font-size: 10px;
+  }
+}
+
+.desktop-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDafJmD0iLVPnvR1tCsZYdYIMEUpiwkHUAhNK-Cm8nZQpoeAaicFmUumlCrm6mVrRqmQlP85r__pVti9xFpd2-J5TKLXL1Pi5nf6gHDRTAYDcrH4bcBYVEZOk6cfS1iFjawNN8ND4e2sE0B_OaD4YNvc9TvGSdLQ6MYDjmeWtd0Z3Y0eud8E2jg9v594wNlxP2OWGJA00RUyMed8EMcQm9UpK_h9ZudeIEKBz7l4crLZeHuMa17T7X7') center/cover no-repeat;
+  opacity: 0.2;
+  mix-blend-mode: luminosity;
+}
