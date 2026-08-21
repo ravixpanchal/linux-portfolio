@@ -57,17 +57,40 @@ export const UbuntuTerminal = ({
     scrollToBottom();
   }, [historyOutput]);
 
-  const handleTrackClick = (e) => {
-    e.stopPropagation();
-    if (!trackRef.current || !bodyRef.current) return;
+  const touchStartYRef = useRef(0);
+  const isTouchSwipingRef = useRef(false);
+
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches[0]) {
+      touchStartYRef.current = e.touches[0].clientY;
+      isTouchSwipingRef.current = false;
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.touches && e.touches[0]) {
+      const dist = Math.abs(e.touches[0].clientY - touchStartYRef.current);
+      if (dist > 8) {
+        isTouchSwipingRef.current = true;
+      }
+    }
+  };
+
+  const handleTrackTouchMove = (e) => {
+    if (!trackRef.current || !bodyRef.current || !e.touches[0]) return;
     const rect = trackRef.current.getBoundingClientRect();
-    const clickY = e.clientY - rect.top;
-    const ratio = Math.max(0, Math.min(1, clickY / rect.height));
+    const touchY = e.touches[0].clientY - rect.top;
+    const ratio = Math.max(0, Math.min(1, touchY / rect.height));
     const targetScroll = ratio * (bodyRef.current.scrollHeight - bodyRef.current.clientHeight);
-    bodyRef.current.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    bodyRef.current.scrollTop = targetScroll;
   };
 
   const handleContainerClick = (e) => {
+    // If user was swiping/scrolling on touch screen, DO NOT focus input
+    if (isTouchSwipingRef.current) {
+      isTouchSwipingRef.current = false;
+      return;
+    }
     // If text is selected or an interactive element was clicked, don't steal focus
     const selection = window.getSelection();
     if (selection && selection.toString().length > 0) return;
@@ -132,7 +155,9 @@ export const UbuntuTerminal = ({
         <div
           ref={trackRef}
           onClick={handleTrackClick}
-          className="absolute right-1 top-11 bottom-11 w-2.5 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center"
+          onTouchStart={handleTrackClick}
+          onTouchMove={handleTrackTouchMove}
+          className="absolute right-1 top-11 bottom-11 w-3 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center touch-none"
           title="Terminal Scroll Indicator"
         >
           <div
@@ -149,6 +174,8 @@ export const UbuntuTerminal = ({
       <div
         ref={bodyRef}
         onClick={handleContainerClick}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onScroll={updateScrollState}
         className="terminal-body font-terminal-input text-terminal-input flex-1 min-h-0 p-3 sm:p-4 overflow-y-auto"
         tabIndex={0}
