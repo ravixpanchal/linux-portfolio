@@ -47,7 +47,7 @@ export const UbuntuTerminal = ({
   };
 
   return (
-    <div className="ubuntu-terminal w-full max-w-[1000px] h-full md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col">
+    <div className="ubuntu-terminal w-full max-w-[1000px] h-full max-h-full min-h-0 md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col overflow-hidden">
       {/* Terminal Header */}
       <div className="terminal-header flex-shrink-0">
         <div className="window-controls">
@@ -64,7 +64,7 @@ export const UbuntuTerminal = ({
       <div
         ref={bodyRef}
         onClick={handleContainerClick}
-        className="terminal-body font-terminal-input text-terminal-input flex-grow p-4 overflow-y-auto"
+        className="terminal-body font-terminal-input text-terminal-input flex-1 min-h-0 p-3 sm:p-4 overflow-y-auto"
         tabIndex={0}
       >
         {historyOutput.map((item, idx) => (

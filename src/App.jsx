@@ -28,7 +28,7 @@ export function App() {
   } = useTerminal();
 
   return (
-    <div className={`min-h-screen flex flex-col font-body-md text-on-surface select-none relative overflow-hidden theme-${activeTheme}`}>
+    <div className={`min-h-screen flex flex-col font-body-md text-on-surface relative overflow-hidden theme-${activeTheme}`}>
       {/* Desktop Backdrop Wallpaper */}
       <div className="desktop-bg"></div>
 
