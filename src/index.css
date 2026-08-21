@@ -164,17 +164,19 @@
 main.desktop-canvas {
   flex: 1;
   position: relative;
-  padding: 56px 20px 48px 88px;
+  padding: 54px 20px 44px 88px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 44px);
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   main.desktop-canvas {
-    padding: 52px 8px 52px 8px;
-    height: calc(100vh - 44px);
+    padding: 50px 8px 44px 8px;
+    height: 100dvh;
+    box-sizing: border-box;
   }
   .ubuntu-terminal {
     height: 100%;

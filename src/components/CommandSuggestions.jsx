@@ -34,7 +34,7 @@ export const CommandSuggestions = ({
   };
 
   return (
-    <div className="md:hidden bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30">
+    <div className="md:hidden bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30 shrink-0">
       {commandHistory && commandHistory.length > 0 && (
         <div className="flex items-center gap-1 border-r border-[#603050] pr-2 shrink-0">
           <button
