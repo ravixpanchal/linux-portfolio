@@ -15,24 +15,57 @@ export const UbuntuTerminal = ({
 }) => {
   const bodyRef = useRef(null);
 
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [thumbHeight, setThumbHeight] = React.useState(35);
+  const [isScrollable, setIsScrollable] = React.useState(false);
+  const trackRef = useRef(null);
+
+  const updateScrollState = () => {
+    if (!bodyRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = bodyRef.current;
+    if (scrollHeight > clientHeight + 10) {
+      setIsScrollable(true);
+      const ratio = clientHeight / scrollHeight;
+      const calculatedThumbH = Math.max(30, Math.min(120, clientHeight * ratio));
+      setThumbHeight(calculatedThumbH);
+      const maxScroll = scrollHeight - clientHeight;
+      setScrollProgress(maxScroll > 0 ? scrollTop / maxScroll : 0);
+    } else {
+      setIsScrollable(false);
+    }
+  };
+
   const scrollToBottom = () => {
     if (!bodyRef.current) return;
     const el = bodyRef.current;
     el.scrollTop = el.scrollHeight;
     requestAnimationFrame(() => {
       if (el) el.scrollTop = el.scrollHeight;
+      updateScrollState();
     });
     setTimeout(() => {
       if (el) el.scrollTop = el.scrollHeight;
+      updateScrollState();
     }, 50);
     setTimeout(() => {
       if (el) el.scrollTop = el.scrollHeight;
+      updateScrollState();
     }, 250);
   };
 
   useEffect(() => {
     scrollToBottom();
   }, [historyOutput]);
+
+  const handleTrackClick = (e) => {
+    e.stopPropagation();
+    if (!trackRef.current || !bodyRef.current) return;
+    const rect = trackRef.current.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+    const ratio = Math.max(0, Math.min(1, clickY / rect.height));
+    const targetScroll = ratio * (bodyRef.current.scrollHeight - bodyRef.current.clientHeight);
+    bodyRef.current.scrollTo({ top: targetScroll, behavior: 'smooth' });
+  };
 
   const handleContainerClick = (e) => {
     // If text is selected or an interactive element was clicked, don't steal focus
@@ -94,10 +127,29 @@ export const UbuntuTerminal = ({
         </div>
       </div>
 
+      {/* 🚀 Custom Visible Touch Scrollbar Overlay */}
+      {isScrollable && (
+        <div
+          ref={trackRef}
+          onClick={handleTrackClick}
+          className="absolute right-1 top-11 bottom-11 w-2.5 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center"
+          title="Terminal Scroll Indicator"
+        >
+          <div
+            className="w-full bg-[#f2b5d6] hover:bg-[#e95420] active:bg-[#e95420] rounded-full transition-colors shadow-lg border border-[#300a24]"
+            style={{
+              height: `${thumbHeight}px`,
+              transform: `translateY(${scrollProgress * Math.max(0, (bodyRef.current?.clientHeight || 350) - thumbHeight - 24)}px)`
+            }}
+          />
+        </div>
+      )}
+
       {/* Terminal Body */}
       <div
         ref={bodyRef}
         onClick={handleContainerClick}
+        onScroll={updateScrollState}
         className="terminal-body font-terminal-input text-terminal-input flex-1 min-h-0 p-3 sm:p-4 overflow-y-auto"
         tabIndex={0}
       >

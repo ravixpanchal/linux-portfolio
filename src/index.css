@@ -188,7 +188,7 @@ main.desktop-canvas {
 
 @media (max-width: 768px) {
   main.desktop-canvas {
-    padding: 48px 8px 40px 8px;
+    padding: 52px 6px 42px 6px;
     height: 100dvh;
     max-height: 100dvh;
     box-sizing: border-box;
