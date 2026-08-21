@@ -39,6 +39,10 @@ export const CommandSuggestions = ({
       const el = document.querySelector('.terminal-body');
       if (el) el.scrollTop = el.scrollHeight;
     }, 50);
+    setTimeout(() => {
+      const el = document.querySelector('.terminal-body');
+      if (el) el.scrollTop = el.scrollHeight;
+    }, 250);
   };
 
   return (

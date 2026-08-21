@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { TerminalOutput } from './TerminalOutput';
 import { TerminalInput } from './TerminalInput';
 import { CommandSuggestions } from './CommandSuggestions';
@@ -15,27 +15,27 @@ export const UbuntuTerminal = ({
 }) => {
   const bodyRef = useRef(null);
 
-  const [scrollProgress, setScrollProgress] = React.useState(0);
-  const [thumbHeight, setThumbHeight] = React.useState(35);
-  const [isScrollable, setIsScrollable] = React.useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [thumbHeight, setThumbHeight] = useState(35);
+  const [isScrollable, setIsScrollable] = useState(false);
   const trackRef = useRef(null);
 
-  const updateScrollState = () => {
+  const updateScrollState = useCallback(() => {
     if (!bodyRef.current) return;
     const { scrollTop, scrollHeight, clientHeight } = bodyRef.current;
-    if (scrollHeight > clientHeight + 10) {
+    if (scrollHeight > clientHeight + 2) {
       setIsScrollable(true);
       const ratio = clientHeight / scrollHeight;
-      const calculatedThumbH = Math.max(30, Math.min(120, clientHeight * ratio));
+      const calculatedThumbH = Math.max(30, Math.min(clientHeight * 0.8, clientHeight * ratio));
       setThumbHeight(calculatedThumbH);
       const maxScroll = scrollHeight - clientHeight;
       setScrollProgress(maxScroll > 0 ? scrollTop / maxScroll : 0);
     } else {
       setIsScrollable(false);
     }
-  };
+  }, []);
 
-  const scrollToBottom = () => {
+  const scrollToBottom = useCallback(() => {
     if (!bodyRef.current) return;
     const el = bodyRef.current;
     el.scrollTop = el.scrollHeight;
@@ -50,12 +50,26 @@ export const UbuntuTerminal = ({
     setTimeout(() => {
       if (el) el.scrollTop = el.scrollHeight;
       updateScrollState();
-    }, 250);
-  };
+    }, 200);
+    setTimeout(() => {
+      if (el) el.scrollTop = el.scrollHeight;
+      updateScrollState();
+    }, 500);
+  }, [updateScrollState]);
 
   useEffect(() => {
     scrollToBottom();
-  }, [historyOutput]);
+  }, [historyOutput, scrollToBottom]);
+
+  // Dynamic ResizeObserver to re-evaluate scrollability whenever cards/DOM elements expand
+  useEffect(() => {
+    if (!bodyRef.current) return;
+    const observer = new ResizeObserver(() => {
+      updateScrollState();
+    });
+    observer.observe(bodyRef.current);
+    return () => observer.disconnect();
+  }, [updateScrollState]);
 
   const touchStartYRef = useRef(0);
   const isTouchSwipingRef = useRef(false);
@@ -74,6 +88,16 @@ export const UbuntuTerminal = ({
         isTouchSwipingRef.current = true;
       }
     }
+  };
+
+  const handleTrackClick = (e) => {
+    e.stopPropagation();
+    if (!trackRef.current || !bodyRef.current) return;
+    const rect = trackRef.current.getBoundingClientRect();
+    const clickY = (e.touches && e.touches[0] ? e.touches[0].clientY : e.clientY) - rect.top;
+    const ratio = Math.max(0, Math.min(1, clickY / rect.height));
+    const targetScroll = ratio * (bodyRef.current.scrollHeight - bodyRef.current.clientHeight);
+    bodyRef.current.scrollTop = targetScroll;
   };
 
   const handleTrackTouchMove = (e) => {
