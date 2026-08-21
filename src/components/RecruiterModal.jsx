@@ -10,15 +10,15 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm animate-fadeIn">
       {/* Modal Container - Styled like a sleek Ubuntu Application Window */}
-      <div className="bg-[#28051e] border border-[#603050] text-white w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
+      <div className="bg-[#28051e] border border-[#603050] text-white w-full max-w-4xl max-h-[92dvh] sm:max-h-[88vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
         
         {/* Modal Window Title Bar */}
-        <div className="bg-[#37122b] border-b border-[#502741] px-4 py-3 flex justify-between items-center select-none flex-shrink-0">
-          <div className="flex items-center gap-2">
-            <div className="w-3.5 h-3.5 rounded-full bg-[#E95420] cursor-pointer hover:opacity-80" onClick={onClose} title="Close"></div>
-            <div className="w-3.5 h-3.5 rounded-full bg-[#AEA79F]"></div>
-            <div className="w-3.5 h-3.5 rounded-full bg-[#4E9A06]"></div>
-            <span className="font-mono font-bold text-xs sm:text-sm text-[#f2b5d6] ml-2">
+        <div className="bg-[#37122b] border-b border-[#502741] px-3 sm:px-4 py-2.5 sm:py-3 flex justify-between items-center select-none flex-shrink-0">
+          <div className="flex items-center gap-2 overflow-hidden">
+            <div className="w-3.5 h-3.5 rounded-full bg-[#E95420] cursor-pointer hover:opacity-80 shrink-0" onClick={onClose} title="Close"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-[#AEA79F] shrink-0"></div>
+            <div className="w-3.5 h-3.5 rounded-full bg-[#4E9A06] shrink-0"></div>
+            <span className="font-mono font-bold text-xs sm:text-sm text-[#f2b5d6] ml-1.5 truncate">
               ⚡ Recruiter Mode - Executive Profile Overview
             </span>
           </div>

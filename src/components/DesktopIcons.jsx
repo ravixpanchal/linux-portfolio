@@ -47,7 +47,7 @@ export const DesktopIcons = ({ onExecuteCommand, onOpenRecruiterModal }) => {
   ];
 
   return (
-    <div className="absolute top-14 left-4 z-10 flex flex-col gap-4 hidden md:flex select-none">
+    <div className="absolute top-14 left-24 z-10 flex flex-col gap-3 hidden lg:flex select-none">
       {icons.map((item) => (
         <button
           key={item.id}
