@@ -115,6 +115,10 @@ export const UbuntuTerminal = ({
       isTouchSwipingRef.current = false;
       return;
     }
+    // On touch screens/mobile devices, do not steal focus on generic body taps to avoid popping up virtual keyboard
+    const isTouchDevice = 'ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || window.innerWidth <= 768;
+    if (isTouchDevice) return;
+
     // If text is selected or an interactive element was clicked, don't steal focus
     const selection = window.getSelection();
     if (selection && selection.toString().length > 0) return;
@@ -127,38 +131,70 @@ export const UbuntuTerminal = ({
   };
 
   const handleScrollTop = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     if (bodyRef.current) {
       bodyRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const handleScrollBottom = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     if (bodyRef.current) {
       bodyRef.current.scrollTo({ top: bodyRef.current.scrollHeight, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollUp = (e) => {
+    if (e) e.stopPropagation();
+    if (bodyRef.current) {
+      const pageHeight = bodyRef.current.clientHeight * 0.7;
+      bodyRef.current.scrollBy({ top: -pageHeight, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollDown = (e) => {
+    if (e) e.stopPropagation();
+    if (bodyRef.current) {
+      const pageHeight = bodyRef.current.clientHeight * 0.7;
+      bodyRef.current.scrollBy({ top: pageHeight, behavior: 'smooth' });
     }
   };
 
   return (
     <div className="ubuntu-terminal w-full max-w-[1000px] h-full max-h-full min-h-0 md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col overflow-hidden relative">
       {/* Floating Quick Scroll Controls */}
-      <div className="absolute right-3 top-12 z-20 flex flex-col gap-1 opacity-80 hover:opacity-100 transition-opacity">
+      <div className="absolute right-4 top-12 z-40 flex flex-col gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
         <button
           onClick={handleScrollTop}
-          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center"
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center cursor-pointer"
           title="Scroll to Top"
           aria-label="Scroll to Top"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_double_arrow_up</span>
+        </button>
+        <button
+          onClick={handleScrollUp}
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center cursor-pointer"
+          title="Scroll Up"
+          aria-label="Scroll Up"
         >
           <span className="material-symbols-outlined text-sm">keyboard_arrow_up</span>
         </button>
         <button
+          onClick={handleScrollDown}
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center cursor-pointer"
+          title="Scroll Down"
+          aria-label="Scroll Down"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+        </button>
+        <button
           onClick={handleScrollBottom}
-          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center"
+          className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center cursor-pointer"
           title="Scroll to Bottom"
           aria-label="Scroll to Bottom"
         >
-          <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+          <span className="material-symbols-outlined text-sm">keyboard_double_arrow_down</span>
         </button>
       </div>
 
@@ -181,7 +217,7 @@ export const UbuntuTerminal = ({
           onClick={handleTrackClick}
           onTouchStart={handleTrackClick}
           onTouchMove={handleTrackTouchMove}
-          className="absolute right-1 top-11 bottom-11 w-3 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center touch-none"
+          className="absolute right-1 top-11 bottom-11 w-2.5 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center touch-none"
           title="Terminal Scroll Indicator"
         >
           <div
@@ -224,6 +260,10 @@ export const UbuntuTerminal = ({
         commandHistory={commandHistory}
         historyIndex={historyIndex}
         setHistoryIndex={setHistoryIndex}
+        onScrollUp={handleScrollUp}
+        onScrollDown={handleScrollDown}
+        onScrollTop={handleScrollTop}
+        onScrollBottom={handleScrollBottom}
       />
     </div>
   );

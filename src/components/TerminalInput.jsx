@@ -47,11 +47,10 @@ export const TerminalInput = ({
   };
 
   const handleFocus = () => {
-    setTimeout(() => {
-      if (inputRef.current) {
-        inputRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      }
-    }, 150);
+    const bodyEl = inputRef.current?.closest('.terminal-body');
+    if (bodyEl) {
+      bodyEl.scrollTop = bodyEl.scrollHeight;
+    }
   };
 
   return (

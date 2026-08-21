@@ -4,7 +4,11 @@ export const CommandSuggestions = ({
   onExecuteCommand,
   commandHistory = [],
   historyIndex = -1,
-  setHistoryIndex
+  setHistoryIndex,
+  onScrollUp,
+  onScrollDown,
+  onScrollTop,
+  onScrollBottom
 }) => {
   const suggestions = [
     { label: '⚡ Recruiter Mode', cmd: 'recruiter', icon: 'badge', highlight: true },
@@ -47,23 +51,58 @@ export const CommandSuggestions = ({
 
   return (
     <div className="bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30 shrink-0">
+      {/* Dedicated Terminal Page Scroll Controls */}
+      <div className="flex items-center gap-1 border-r border-[#603050] pr-2 shrink-0">
+        <button
+          onClick={onScrollUp}
+          className="bg-[#502741] hover:bg-[#e95420] text-white px-2 py-1 rounded-md text-xs flex items-center gap-1 font-mono font-medium active:scale-95 shadow transition-colors cursor-pointer"
+          title="Scroll Terminal Up"
+          aria-label="Scroll Terminal Up"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_arrow_up</span>
+          <span className="text-[11px]">Up</span>
+        </button>
+        <button
+          onClick={onScrollDown}
+          className="bg-[#502741] hover:bg-[#e95420] text-white px-2 py-1 rounded-md text-xs flex items-center gap-1 font-mono font-medium active:scale-95 shadow transition-colors cursor-pointer"
+          title="Scroll Terminal Down"
+          aria-label="Scroll Terminal Down"
+        >
+          <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+          <span className="text-[11px]">Down</span>
+        </button>
+        {onScrollTop && (
+          <button
+            onClick={onScrollTop}
+            className="bg-[#37122b] hover:bg-[#502741] text-[#f2b5d6] px-1.5 py-1 rounded-md text-xs font-mono font-bold active:scale-95 border border-[#603050]"
+            title="Scroll to Top"
+            aria-label="Scroll to Top"
+          >
+            Top
+          </button>
+        )}
+      </div>
+
+      {/* Command History Navigation */}
       {commandHistory && commandHistory.length > 0 && (
         <div className="flex items-center gap-1 border-r border-[#603050] pr-2 shrink-0">
           <button
             onClick={handlePrevHistory}
-            className="bg-[#e95420] text-white p-1 rounded-md text-xs flex items-center justify-center font-mono font-bold active:scale-95 shadow"
-            title="Previous Typed Command"
-            aria-label="Previous Typed Command"
+            className="bg-[#37122b] hover:bg-[#502741] text-[#e0d0d8] px-2 py-1 rounded-md text-xs flex items-center gap-0.5 font-mono text-[10px] active:scale-95 border border-[#603050]"
+            title="Re-run Previous Typed Command"
+            aria-label="Re-run Previous Typed Command"
           >
-            <span className="material-symbols-outlined text-base">arrow_upward</span>
+            <span className="material-symbols-outlined text-xs">history</span>
+            <span>Hist Prev</span>
           </button>
           <button
             onClick={handleNextHistory}
-            className="bg-[#502741] text-white p-1 rounded-md text-xs flex items-center justify-center font-mono font-bold active:scale-95 shadow"
-            title="Next Typed Command"
-            aria-label="Next Typed Command"
+            className="bg-[#37122b] hover:bg-[#502741] text-[#e0d0d8] px-2 py-1 rounded-md text-xs flex items-center gap-0.5 font-mono text-[10px] active:scale-95 border border-[#603050]"
+            title="Re-run Next Typed Command"
+            aria-label="Re-run Next Typed Command"
           >
-            <span className="material-symbols-outlined text-base">arrow_downward</span>
+            <span className="material-symbols-outlined text-xs">history_toggle_off</span>
+            <span>Hist Next</span>
           </button>
         </div>
       )}
@@ -75,7 +114,7 @@ export const CommandSuggestions = ({
         <button
           key={idx}
           onClick={() => handleSuggestionClick(item.cmd)}
-          className={`${item.highlight ? 'bg-[#e95420] text-white font-bold' : 'bg-[#37122b] text-[#e0d0d8]'} border border-[#603050] px-3 py-1 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm`}
+          className={`${item.highlight ? 'bg-[#e95420] text-white font-bold' : 'bg-[#37122b] text-[#e0d0d8]'} border border-[#603050] px-3 py-1 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm cursor-pointer`}
         >
           <span className="material-symbols-outlined text-sm">{item.icon}</span>
           <span>{item.label}</span>

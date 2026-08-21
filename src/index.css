@@ -30,7 +30,9 @@
   body {
     background-color: #11050E;
     background-image: radial-gradient(circle at center, #28051e 0%, #11050E 100%);
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -176,24 +178,29 @@
 .exec { color: #8adb4d; font-weight: bold; }
 
 main.desktop-canvas {
-  flex: 1;
-  position: relative;
-  padding: 54px 20px 44px 88px;
+  position: fixed;
+  top: 44px;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  padding: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  main.desktop-canvas {
+    top: 48px;
+    bottom: 36px;
+    left: 88px;
+    padding: 16px;
+  }
 }
 
 @media (max-width: 768px) {
-  main.desktop-canvas {
-    padding: 52px 6px 42px 6px;
-    height: 100dvh;
-    max-height: 100dvh;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
   .ubuntu-terminal {
     height: 100%;
     width: 100%;
