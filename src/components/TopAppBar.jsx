@@ -6,12 +6,13 @@ export const TopAppBar = ({ onToggleMobileMenu, mobileMenuOpen }) => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-      setTimeStr(now.toLocaleDateString('en-US', options).replace(',', ''));
+      const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      const timeStrFormatted = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+      setTimeStr(`${dateStr} ${timeStrFormatted}`);
     };
 
     updateTime();
-    const timer = setInterval(updateTime, 10000);
+    const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -40,7 +41,7 @@ export const TopAppBar = ({ onToggleMobileMenu, mobileMenuOpen }) => {
 
       <div className="flex items-center gap-2.5 sm:gap-4 text-white">
         <span className="text-[11px] font-mono text-[#e0d0d8] sm:hidden">
-          {timeStr ? timeStr.split(' ').slice(-1)[0] : ''}
+          {timeStr ? timeStr.split(' ').slice(-2).join(' ') : ''}
         </span>
         <span className="material-symbols-outlined text-lg sm:text-xl cursor-default text-white" title="Connected">
           network_wifi

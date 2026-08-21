@@ -21,7 +21,12 @@ export const UbuntuTerminal = ({
     }
   }, [historyOutput]);
 
-  const handleContainerClick = () => {
+  const handleContainerClick = (e) => {
+    // If text is selected or an interactive element was clicked, don't steal focus
+    const selection = window.getSelection();
+    if (selection && selection.toString().length > 0) return;
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) return;
+
     const inputEl = bodyRef.current?.querySelector('input');
     if (inputEl) {
       inputEl.focus();
@@ -64,7 +69,12 @@ export const UbuntuTerminal = ({
       </div>
 
       {/* Mobile Quick Bar */}
-      <CommandSuggestions onExecuteCommand={onExecuteCommand} />
+      <CommandSuggestions
+        onExecuteCommand={onExecuteCommand}
+        commandHistory={commandHistory}
+        historyIndex={historyIndex}
+        setHistoryIndex={setHistoryIndex}
+      />
     </div>
   );
 };

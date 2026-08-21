@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const CommandSuggestions = ({ onExecuteCommand }) => {
+export const CommandSuggestions = ({
+  onExecuteCommand,
+  commandHistory = [],
+  historyIndex = -1,
+  setHistoryIndex
+}) => {
   const suggestions = [
     { label: 'help', cmd: 'help', icon: 'terminal' },
     { label: 'projects', cmd: 'projects', icon: 'folder_special' },
@@ -12,8 +17,45 @@ export const CommandSuggestions = ({ onExecuteCommand }) => {
     { label: 'clear', cmd: 'clear', icon: 'cleaning_services' }
   ];
 
+  const handlePrevHistory = () => {
+    if (!commandHistory || commandHistory.length === 0) return;
+    const nextIdx = historyIndex <= 0 ? 0 : historyIndex - 1;
+    if (setHistoryIndex) setHistoryIndex(nextIdx);
+    const cmd = commandHistory[nextIdx];
+    if (cmd) onExecuteCommand(cmd);
+  };
+
+  const handleNextHistory = () => {
+    if (!commandHistory || commandHistory.length === 0) return;
+    const nextIdx = historyIndex >= commandHistory.length - 1 ? commandHistory.length - 1 : historyIndex + 1;
+    if (setHistoryIndex) setHistoryIndex(nextIdx);
+    const cmd = commandHistory[nextIdx];
+    if (cmd) onExecuteCommand(cmd);
+  };
+
   return (
     <div className="md:hidden bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30">
+      {commandHistory && commandHistory.length > 0 && (
+        <div className="flex items-center gap-1 border-r border-[#603050] pr-2 shrink-0">
+          <button
+            onClick={handlePrevHistory}
+            className="bg-[#e95420] text-white p-1 rounded-md text-xs flex items-center justify-center font-mono font-bold active:scale-95 shadow"
+            title="Previous Typed Command"
+            aria-label="Previous Typed Command"
+          >
+            <span className="material-symbols-outlined text-base">arrow_upward</span>
+          </button>
+          <button
+            onClick={handleNextHistory}
+            className="bg-[#502741] text-white p-1 rounded-md text-xs flex items-center justify-center font-mono font-bold active:scale-95 shadow"
+            title="Next Typed Command"
+            aria-label="Next Typed Command"
+          >
+            <span className="material-symbols-outlined text-base">arrow_downward</span>
+          </button>
+        </div>
+      )}
+
       <span className="text-[10px] font-mono text-[#f2b5d6] uppercase tracking-wider pl-1 pr-1 font-bold">
         Quick:
       </span>

@@ -92,6 +92,9 @@
   flex-grow: 1;
   scroll-behavior: smooth;
   color: #ffffff;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  user-select: text;
 }
 
 .terminal-body::-webkit-scrollbar {
