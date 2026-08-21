@@ -15,10 +15,23 @@ export const UbuntuTerminal = ({
 }) => {
   const bodyRef = useRef(null);
 
+  const scrollToBottom = () => {
+    if (!bodyRef.current) return;
+    const el = bodyRef.current;
+    el.scrollTop = el.scrollHeight;
+    requestAnimationFrame(() => {
+      if (el) el.scrollTop = el.scrollHeight;
+    });
+    setTimeout(() => {
+      if (el) el.scrollTop = el.scrollHeight;
+    }, 50);
+    setTimeout(() => {
+      if (el) el.scrollTop = el.scrollHeight;
+    }, 250);
+  };
+
   useEffect(() => {
-    if (bodyRef.current) {
-      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-    }
+    scrollToBottom();
   }, [historyOutput]);
 
   const handleContainerClick = (e) => {

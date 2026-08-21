@@ -90,7 +90,6 @@
   padding: 16px;
   overflow-y: auto;
   flex-grow: 1;
-  scroll-behavior: smooth;
   color: #ffffff;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;

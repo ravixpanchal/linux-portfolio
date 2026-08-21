@@ -46,8 +46,16 @@ export const TerminalInput = ({
     }
   };
 
+  const handleFocus = () => {
+    setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }, 150);
+  };
+
   return (
-    <div className="flex items-center gap-1 sm:gap-2 mt-2 font-mono text-sm sm:text-base">
+    <div className="flex items-center gap-1 sm:gap-2 mt-2 mb-6 sm:mb-4 pb-6 font-mono text-sm sm:text-base">
       <span className="prompt whitespace-nowrap hidden sm:inline">visitor@ravi-portfolio</span>
       <span className="prompt whitespace-nowrap inline sm:hidden">ravi</span>
       <span className="text-on-surface">:</span>
@@ -61,6 +69,7 @@ export const TerminalInput = ({
           value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
           onKeyDown={handleKeyDown}
+          onFocus={handleFocus}
           className="command-input min-w-0"
           autoFocus
           spellCheck="false"

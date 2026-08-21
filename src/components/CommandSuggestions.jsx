@@ -33,6 +33,14 @@ export const CommandSuggestions = ({
     if (cmd) onExecuteCommand(cmd);
   };
 
+  const handleSuggestionClick = (cmd) => {
+    onExecuteCommand(cmd);
+    setTimeout(() => {
+      const el = document.querySelector('.terminal-body');
+      if (el) el.scrollTop = el.scrollHeight;
+    }, 50);
+  };
+
   return (
     <div className="bg-[#28051e] border-t border-[#502741] px-2 py-2 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none select-none z-30 shrink-0">
       {commandHistory && commandHistory.length > 0 && (
@@ -62,7 +70,7 @@ export const CommandSuggestions = ({
       {suggestions.map((item, idx) => (
         <button
           key={idx}
-          onClick={() => onExecuteCommand(item.cmd)}
+          onClick={() => handleSuggestionClick(item.cmd)}
           className={`${item.highlight ? 'bg-[#e95420] text-white font-bold' : 'bg-[#37122b] text-[#e0d0d8]'} border border-[#603050] px-3 py-1 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm`}
         >
           <span className="material-symbols-outlined text-sm">{item.icon}</span>
