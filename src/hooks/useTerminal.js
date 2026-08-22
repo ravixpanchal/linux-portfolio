@@ -10,6 +10,12 @@ Welcome to Ravi Panchal's Interactive Portfolio.
 Type 'help' or 'guide' to see available commands.`
 };
 
+const clearedBanner = {
+  type: 'banner',
+  content: `Welcome to Ravi Panchal's Interactive Portfolio.
+Type 'help' or 'guide' to see available commands.`
+};
+
 export const useTerminal = () => {
   const fsEngine = useMemo(() => new FileSystemEngine(), []);
   const commandProcessor = useMemo(() => new CommandProcessor(fsEngine), [fsEngine]);
@@ -42,7 +48,7 @@ export const useTerminal = () => {
 
     if (result) {
       if (result.type === 'clear') {
-        setHistoryOutput([]);
+        setHistoryOutput([{ id: Date.now(), ...clearedBanner }]);
         return;
       }
 
@@ -105,7 +111,7 @@ export const useTerminal = () => {
   }, [currentPath, fsEngine]);
 
   const clearTerminal = useCallback(() => {
-    setHistoryOutput([]);
+    setHistoryOutput([{ id: Date.now(), ...clearedBanner }]);
   }, []);
 
   return {
