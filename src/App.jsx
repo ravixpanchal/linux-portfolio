@@ -46,6 +46,7 @@ export function App() {
         onExecuteCommand={executeCommand}
         mobileMenuOpen={mobileMenuOpen}
         onCloseMobileMenu={() => setMobileMenuOpen(false)}
+        onOpenRecruiterModal={() => setIsRecruiterModalOpen(true)}
       />
 
       {/* Main Desktop Canvas & Terminal Window */}
