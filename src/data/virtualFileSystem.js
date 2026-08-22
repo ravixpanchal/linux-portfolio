@@ -29,7 +29,7 @@ export const initialFileSystem = {
     content: {
       'about.txt': {
         type: 'file',
-        content: `${portfolioData.personal.name} - ${portfolioData.personal.title}\n${portfolioData.personal.degree} (CGPA: ${portfolioData.personal.cgpa})\n\n${portfolioData.personal.bio}`
+        content: portfolioData.about
       },
       'overview.txt': {
         type: 'file',
@@ -75,7 +75,7 @@ export const initialFileSystem = {
             type: 'file',
             content: `Degree: ${portfolioData.education[0].degree}\nInstitution: ${portfolioData.education[0].institution}\nPeriod: ${portfolioData.education[0].period}\nScore: ${portfolioData.education[0].score}\n\nCore Coursework:\n- ${portfolioData.education[0].courses.join('\n- ')}`
           },
-          'highschool.txt': {
+          'school.txt': {
             type: 'file',
             content: `Degree: ${portfolioData.education[1].degree}\nInstitution: ${portfolioData.education[1].institution}\nPeriod: ${portfolioData.education[1].period}\nScore: ${portfolioData.education[1].score}`
           }
@@ -110,16 +110,13 @@ export const initialFileSystem = {
 
       'project-stories': {
         type: 'dir',
-        content: {
-          'rag-story.txt': {
+        content: portfolioData.stories.reduce((acc, story) => {
+          acc[story.file] = {
             type: 'file',
-            content: `${portfolioData.stories[0].title}\n\nSummary: ${portfolioData.stories[0].summary}\n\n${portfolioData.stories[0].content}`
-          },
-          'computer-vision-story.txt': {
-            type: 'file',
-            content: `${portfolioData.stories[1].title}\n\nSummary: ${portfolioData.stories[1].summary}\n\n${portfolioData.stories[1].content}`
-          }
-        }
+            content: `${story.title}\n\nSummary: ${story.summary}\n\n${story.content}`
+          };
+          return acc;
+        }, {})
       },
 
       'skills': {
@@ -146,66 +143,50 @@ export const initialFileSystem = {
 
       'coding': {
         type: 'dir',
-        content: {
-          'leetcode.txt': {
+        content: portfolioData.coding.reduce((acc, item) => {
+          const fileName = item.file || `${item.platform.toLowerCase()}.txt`;
+          acc[fileName] = {
             type: 'file',
-            content: `Platform: LeetCode\nRating: ${portfolioData.coding[0].rating}\nProblems Solved: ${portfolioData.coding[0].solved}\nProfile: ${portfolioData.coding[0].profile}`
-          },
-          'hackerrank.txt': {
-            type: 'file',
-            content: `Platform: HackerRank\nRating: ${portfolioData.coding[1].rating}\nChallenges: ${portfolioData.coding[1].solved}\nProfile: ${portfolioData.coding[1].profile}`
-          },
-          'codechef.txt': {
-            type: 'file',
-            content: `Platform: CodeChef\nRating: ${portfolioData.coding[2].rating}\nProblems Solved: ${portfolioData.coding[2].solved}\nProfile: ${portfolioData.coding[2].profile}`
-          }
-        }
+            content: `Platform: ${item.platform}\nRating: ${item.rating}\nProblems Solved: ${item.solved}\nProfile: ${item.profile}`
+          };
+          return acc;
+        }, {})
       },
 
       'achievements': {
         type: 'dir',
-        content: {
-          'awards.txt': {
+        content: portfolioData.achievements.reduce((acc, item) => {
+          const fileName = item.file || 'achievement.txt';
+          acc[fileName] = {
             type: 'file',
-            content: `Award: ${portfolioData.achievements[0].title} (${portfolioData.achievements[0].year})\nDetails: ${portfolioData.achievements[0].desc}`
-          },
-          'certifications.txt': {
-            type: 'file',
-            content: `Certification: ${portfolioData.achievements[1].title} (${portfolioData.achievements[1].year})\nDetails: ${portfolioData.achievements[1].desc}`
-          },
-          'publication.txt': {
-            type: 'file',
-            content: `Paper: ${portfolioData.achievements[2].title} (${portfolioData.achievements[2].year})\nDetails: ${portfolioData.achievements[2].desc}`
-          }
-        }
+            content: `${item.title} (${item.year})\nDetails: ${item.desc}`
+          };
+          return acc;
+        }, {})
       },
 
       'activities': {
         type: 'dir',
-        content: {
-          'community.txt': {
+        content: portfolioData.activities.reduce((acc, item) => {
+          const fileName = item.file || 'activity.txt';
+          acc[fileName] = {
             type: 'file',
-            content: `${portfolioData.activities[0].title}\n\n${portfolioData.activities[0].desc}`
-          },
-          'open-source.txt': {
-            type: 'file',
-            content: `${portfolioData.activities[1].title}\n\n${portfolioData.activities[1].desc}`
-          }
-        }
+            content: `${item.title}\n\n${item.desc}`
+          };
+          return acc;
+        }, {})
       },
 
       'blogs': {
         type: 'dir',
-        content: {
-          'ai-trends.txt': {
+        content: portfolioData.blogs.reduce((acc, item) => {
+          const fileName = item.file || 'blog.txt';
+          acc[fileName] = {
             type: 'file',
-            content: `Article: ${portfolioData.blogs[0].title}\nDate: ${portfolioData.blogs[0].date} | ${portfolioData.blogs[0].readTime}\n\n${portfolioData.blogs[0].snippet}`
-          },
-          'clean-code.txt': {
-            type: 'file',
-            content: `Article: ${portfolioData.blogs[1].title}\nDate: ${portfolioData.blogs[1].date} | ${portfolioData.blogs[1].readTime}\n\n${portfolioData.blogs[1].snippet}`
-          }
-        }
+            content: `Article: ${item.title}\nDate: ${item.date} | ${item.readTime}\n\n${item.snippet}\n\n📖 Read full article:\n${item.url}`
+          };
+          return acc;
+        }, {})
       },
 
       'resume': {

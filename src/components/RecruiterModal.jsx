@@ -60,14 +60,6 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
                 <span className="material-symbols-outlined text-sm">mail</span>
                 Email Candidate
               </a>
-              <a
-                href={personal.github}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-[#1d0316] hover:bg-[#320e26] text-white text-xs font-bold px-3.5 py-2.5 rounded-lg border border-[#603050] transition-colors font-mono"
-              >
-                GitHub
-              </a>
             </div>
           </div>
 
@@ -81,7 +73,7 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
             <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
               <div className="text-xs text-[#e0d0d8]">Experience</div>
               <div className="text-base font-bold text-[#f2b5d6] mt-1">3 Internships</div>
-              <div className="text-[11px] text-[#9c8d93]">RAG, AI & Data</div>
+              <div className="text-[11px] text-[#9c8d93]">AI-ML , Gen-AI</div>
             </div>
             <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
               <div className="text-xs text-[#e0d0d8]">LeetCode</div>
@@ -89,9 +81,9 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
               <div className="text-[11px] text-[#9c8d93]">Rating: 1,422 (#324k Rank)</div>
             </div>
             <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
-              <div className="text-xs text-[#e0d0d8]">SIH Hackathon</div>
-              <div className="text-base font-bold text-white mt-1">1st Place Winner</div>
-              <div className="text-[11px] text-[#8adb4d]">Smart India Hackathon</div>
+              <div className="text-xs text-[#e0d0d8]">GeeksforGeeks</div>
+              <div className="text-base font-bold text-white mt-1">Institution Rank</div>
+              <div className="text-[11px] text-[#8adb4d]">Institution Rank #1</div>
             </div>
           </div>
 

@@ -50,12 +50,6 @@ export function App() {
 
       {/* Main Desktop Canvas & Terminal Window */}
       <main className="desktop-canvas">
-        {/* Floating Wallpaper Icons */}
-        <DesktopIcons
-          onExecuteCommand={executeCommand}
-          onOpenRecruiterModal={() => setIsRecruiterModalOpen(true)}
-        />
-
         <UbuntuTerminal
           currentPath={currentPath}
           historyOutput={historyOutput}

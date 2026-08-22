@@ -88,9 +88,31 @@ export const TerminalOutput = ({ output }) => {
                 })}
               </div>
             ) : (
-              <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-[#ffffff] font-normal">
-                {result.content}
-              </pre>
+              <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-[#ffffff] font-normal">
+                {result.content.split('\n').map((line, lIdx) => {
+                  const urlRegex = /(https?:\/\/[^\s]+)/g;
+                  const parts = line.split(urlRegex);
+                  return (
+                    <div key={lIdx}>
+                      {parts.map((part, pIdx) =>
+                        part.match(/^https?:\/\//) ? (
+                          <a
+                            key={pIdx}
+                            href={part}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-[#8adb4d] underline hover:text-[#f2b5d6] break-all font-bold"
+                          >
+                            {part}
+                          </a>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             )}
           </div>
         )}
@@ -128,6 +150,23 @@ export const TerminalOutput = ({ output }) => {
                 ))}
               </div>
             )}
+          </div>
+        )}
+
+        {result?.type === 'tree' && (
+          <div className="my-2 font-mono text-sm leading-snug">
+            <div className="text-[#8adb4d] font-bold mb-1">📂 {result.rootName}</div>
+            {result.lines.map((line, idx) => (
+              <div
+                key={idx}
+                className={line.type === 'dir' ? 'text-[#f2b5d6] font-bold' : 'text-[#ffffff]'}
+              >
+                {line.text}
+              </div>
+            ))}
+            <div className="text-xs text-[#ffb59e] mt-2 font-sans font-semibold border-t border-[#603050] pt-2">
+              📊 {result.stats.directories} directories, {result.stats.files} files
+            </div>
           </div>
         )}
 
@@ -174,9 +213,9 @@ export const TerminalOutput = ({ output }) => {
             <div className="font-mono text-xs text-[#ffffff] flex-grow space-y-1">
               <div><span className="text-[#f2b5d6] font-bold text-sm">ravi@portfolio</span></div>
               <div className="text-[#603050] border-b border-[#603050] pb-1">-----------------</div>
-              <div><span className="text-[#8adb4d] font-bold">OS</span>: Ubuntu 22.04 LTS (Portfolio Edition)</div>
+              <div><span className="text-[#8adb4d] font-bold">OS</span>: Ubuntu 26.04 LTS (Portfolio Edition)</div>
               <div><span className="text-[#8adb4d] font-bold">Degree</span>: {result.data.degree} (CGPA: {result.data.cgpa})</div>
-              <div><span className="text-[#8adb4d] font-bold">Host</span>: Vercel / Cloud Engine</div>
+              <div><span className="text-[#8adb4d] font-bold">Host</span>: Vercel</div>
               <div><span className="text-[#8adb4d] font-bold">Kernel</span>: Web Standards / React 18</div>
               <div><span className="text-[#8adb4d] font-bold">Shell</span>: Bash (interactive simulation)</div>
               <div><span className="text-[#8adb4d] font-bold">Theme</span>: Yaru Dark (Aubergine & Orange)</div>
@@ -376,6 +415,28 @@ export const TerminalOutput = ({ output }) => {
                 Download / View Resume
               </a>
             </div>
+          </div>
+        )}
+
+        {result?.type === 'blogs' && (
+          <div className="space-y-3 my-3 max-w-2xl font-mono text-sm">
+            {result.data.map((blog, idx) => (
+              <div key={idx} className="bg-[#320e26] p-4 rounded-lg border border-[#603050] shadow-md">
+                <div className="text-[#f2b5d6] font-bold text-base mb-1">{blog.title}</div>
+                <div className="text-xs text-[#8adb4d] mb-2">{blog.date} | {blog.readTime}</div>
+                <p className="text-xs text-[#e0d0d8] font-sans leading-relaxed mb-3">{blog.snippet}</p>
+                {blog.url && (
+                  <a
+                    href={blog.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block bg-[#e95420] text-white font-bold text-xs px-3.5 py-1.5 rounded hover:bg-[#c33900] transition-colors font-sans shadow-md"
+                  >
+                    📖 Read Full Article ↗
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         )}
 

@@ -4,11 +4,7 @@ import { CommandProcessor } from '../utils/CommandProcessor';
 
 const initialBanner = {
   type: 'banner',
-  content: `Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-101-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
+  content: `Welcome to Ubuntu 26.04 LTS (GNU/Linux 6.8.0-generic x86_64)
 
 Welcome to Ravi Panchal's Interactive Portfolio.
 Type 'help' or 'guide' to see available commands.`
@@ -84,7 +80,7 @@ export const useTerminal = () => {
     if (parts.length <= 1) {
       // Complete command names
       const knownCmds = [
-        'help', 'recruiter', 'theme', 'matrix', 'guide', 'ls', 'cd', 'pwd', 'cat', 'grep', 'find',
+        'help', 'recruiter', 'theme', 'matrix', 'guide', 'tree', 'ls', 'cd', 'pwd', 'cat', 'grep', 'find',
         'intro', 'projects', 'internships', 'skills', 'education',
         'stories', 'coding', 'achievements', 'activities', 'blogs',
         'resume', 'contact', 'neofetch', 'whoami', 'history', 'clear', 'man'

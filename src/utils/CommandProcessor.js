@@ -111,6 +111,20 @@ export class CommandProcessor {
         };
       }
 
+      case 'tree': {
+        const targetDir = args[0] || '';
+        const res = this.fsEngine.tree(currentPath, targetDir);
+        if (!res.success) {
+          return { type: 'error', content: res.error };
+        }
+        return {
+          type: 'tree',
+          rootName: res.rootName,
+          lines: res.lines,
+          stats: res.stats
+        };
+      }
+
       // --- Utility Commands ---
       case 'help':
         return {
@@ -121,6 +135,7 @@ export class CommandProcessor {
             { cmd: 'theme [name]', desc: 'Change terminal theme (yaru, matrix, dracula, nord, cyberpunk)' },
             { cmd: 'matrix', desc: 'Trigger full-screen Matrix digital rain effect' },
             { cmd: 'guide', desc: 'Interactive step-by-step portfolio tour' },
+            { cmd: 'tree [dir]', desc: 'Display full recursive directory tree structure' },
             { cmd: 'ls [dir]', desc: 'List directory files and folders' },
             { cmd: 'cd <dir>', desc: 'Change current virtual directory' },
             { cmd: 'pwd', desc: 'Print working directory path' },

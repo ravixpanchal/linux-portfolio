@@ -13,9 +13,30 @@ export const portfolioData = {
     bio: "Passionate AI/ML engineer focused on building high-performance scalable web applications, RAG pipelines, and automated data solutions."
   },
 
+  about: `Hi, I'm Ravi Panchal.
+
+I am a B.Tech Final year student in Artificial Intelligence & Data Science, specializing in Transportation and Logistics at Gati Shakti Vishwavidyalaya, Vadodara.
+
+My interests lie in Artificial Intelligence, Machine Learning Generative AI, Retrieval Augmented Generation (RAG), Deep Learning and automation. I enjoy building practical AI systems that transform complex data into useful insights and real-world applications.
+
+During my internship at BISAG-N, Gandhinagar, I worked on a RAG-based Chatbot for Financial Services using the FinanceParam model. I also experimented with QLoRA-based quantization and integrated a Query Optimizer layer using Qwen2.5-7B through Ollama. Additionally, I developed a GST AI Insight platform using the Sarvam API.
+
+My projects include osteoporosis image classification system, a railway accident analysis and safety improvement system, an end-to-end X post automation and File Sharing system .
+
+I am particularly interested in building scalable AI applications, working with Large Language Models, RAG pipelines, deep learning models, and automation systems. I also have experience with Python, C++, Java, SQL, Docker, Hugging Face, Ollama, Git, GitHub, and Linux.
+
+Beyond academics, I had led technical teams, conducted DSA sessions, organized programming events, and participated in hackathons and competitions.
+
+Currently, I am focused on expanding my expertise in AI, Generative AI, Machine Learning, and software development while building impactful projects that solve real-world problems.
+
+Let's build something intelligent.`,
+
   introduction: `Hi, I'm Ravi Panchal! 🚀
+
 B.Tech in Artificial Intelligence & Data Science (CGPA: 8.42).
+
 I build scalable web applications, deep learning based systems, and RAG knowledge engines.
+
 Currently seeking impactful Software Engineering or AI/ML roles.
 
 Type 'guide' or 'help' to see all available commands!`,
@@ -74,12 +95,12 @@ Type 'guide' or 'help' to see all available commands!`,
       courses: ["Data Structures & Algorithms", "Machine Learning", "Deep Learning", "Natural Language Processing", "Database Systems", "Operating Systems", "Computer Networks"]
     },
     {
-      file: "highschool.txt",
+      file: "school.txt",
       institution: "S. R. Inter College, Orai",
       degree: "Higher Secondary (UP Board)",
-      period: "2019 - 2020",
-      score: "Percentage: 88.0%",
-      courses: ["Physics", "Chemistry", "Mathematics", "Computer Science"]
+      period: "2021 - 2022",
+      score: "Percentage: 84.5%",
+      courses: ["Physics", "Chemistry", "Mathematics", "Computer Science", "Hindi"]
     }
   ],
 
@@ -93,7 +114,7 @@ Type 'guide' or 'help' to see all available commands!`,
       githubUrl: "https://github.com/ravixpanchal/OsteoNet-XAI",
       liveDemoUrl: "https://osteonet-xai-web.streamlit.app/",
       highlights: [
-        "94.2% validation accuracy on clinical dataset.",
+        "We created augmented data during training.",
         "Interactive web dashboard for radiologists to upload X-rays and view heatmap highlights."
       ]
     },
@@ -102,12 +123,12 @@ Type 'guide' or 'help' to see all available commands!`,
       name: "Railway Accident Analysis",
       category: "Data Science",
       stack: ["ML", "EDA", "Colab", "Streamlit"],
-      desc: "Edge-computed real-time track anomaly detector equipped with camera sensors mounted on inspection vehicles.",
+      desc: "Built an interactive Streamlit dashboard to analyze 3,859 European railway accidents across 31 countries , identifying safety patterns, causes, and risk factors.",
       githubUrl: "https://github.com/ravixpanchal/railway-accident-and-safety-improvements",
       liveDemoUrl: "https://railway-accident-analysis-eda.streamlit.app/",
       highlights: [
-        "Detects track cracks and joint displacement at speeds up to 40 km/h.",
-        "Instant alert notifications sent to central control room via MQTT."
+        "Identified the exact causes of railway accidents to help prevent similar incidents and improve safety.",
+        "Published a research paper based on the project and its findings."
       ]
     },
     {
@@ -115,66 +136,112 @@ Type 'guide' or 'help' to see all available commands!`,
       name: "X (Twitter) Post Automation",
       category: "Automation",
       stack: ["NGROK", "Slack", "TypeScript", "CRON"],
-      desc: "Smart social media bot for content curation, automated thread summarizing, and sentiment-aware replies.",
+      desc: "Developed an automated AI-powered X (Twitter) posting pipeline with interactive Slack approval, using Playwright and systemd without requiring a paid X API.",
       githubUrl: "https://github.com/ravixpanchal/x-post-automation",
       liveDemoUrl: "https://github.com/ravixpanchal/x-post-automation",
       highlights: [
-        "Handles content scheduling, auto-retweets, and sentiment analysis.",
-        "Over 10,000 automated interactions processed with zero account flags."
+        "Eliminated the need for a paid X (Twitter) API by using browser automation with Playwright.",
+        "Published posts automatically only after receiving user approval through Slack."
       ]
     },
     {
       file: "gst-ai-insights.txt",
       name: "GST AI Insights & Analytics Dashboard",
       category: "Web & FinTech AI",
-      stack: ["React", "Django", "Pandas", "TailwindCSS", "Recharts"],
-      desc: "AI-driven tax analytics platform that parses GST invoice datasets to detect tax discrepancies and anomaly patterns.",
-      githubUrl: "https://github.com/ravixpanchal",
-      liveDemoUrl: "https://github.com/ravixpanchal",
+      stack: ["Pandas", "Streamlit", "Python", "Sarvam API"],
+      desc: "Developed an AI-powered GST analytics platform that transforms uploaded GSTR-3B Excel data into interactive dashboards, insights, and downloadable Word reports.",
+      githubUrl: "https://github.com/ravixpanchal/GST-Insight-AI",
+      liveDemoUrl: "https://gst-insight-ai-web.streamlit.app/",
       highlights: [
-        "Automated PDF invoice OCR parsing with Tesseract & Regex.",
-        "Interactive visual charts for monthly input tax credit reconciliation."
+        "Calculates GSTR-3B return penalties and applicable fines based on the uploaded return details.",
+        "Generates a detailed report covering all key financial parameters, insights, and trends."
       ]
     },
     {
       file: "rag-assistant.txt",
-      name: "Enterprise RAG Document Knowledge Base",
+      name: "RAG Chatbot for Financial Services",
       category: "Generative AI & LLMs",
       stack: ["Python", "LangChain", "ChromaDB", "FastAPI", "React"],
-      desc: "Hybrid search RAG assistant enabling instant, citation-backed QA over thousands of technical documentation pages.",
+      desc: "Developed an AI-powered RAG chatbot for financial services using FinanceParam, QLoRA-based model adaptation, and a Qwen2.5-7B query optimizer to improve retrieval quality.",
       githubUrl: "https://github.com/ravixpanchal",
       liveDemoUrl: "https://github.com/ravixpanchal",
       highlights: [
-        "Combines BM25 keyword search with dense vector embeddings.",
-        "Sub-second response streaming with strict source attribution."
+        "Published a technical blog analyzing the drawbacks and limitations of the quantized FinanceParam model.",
+        "Integrated Anthropic’s financial repository plugins with the Qwen model to enhance financial query processing."
       ]
     }
   ],
 
   stories: [
     {
-      file: "rag-story.txt",
-      title: "Building an Enterprise RAG Engine Under 100ms Latency",
-      summary: "How we optimized vector indexing and caching to query 50,000+ technical manuals with source citations.",
-      content: `### The Challenge
-Standard vector search can be slow when processing thousands of enterprise PDFs with dense technical tables and code snippets.
+      file: "file-sharing-story.txt",
+      title: "BurnDrop: Fast & Temporary File-Sharing Platform",
+      summary: "How internship constraints at BISAG-N inspired building a zero-account 3-hour self-destructing file sharing tool.",
+      content: `I got the idea for BurnDrop during my internship at BISAG-N, Gandhinagar.
 
-### Solution & Architecture
-1. **Document Chunking:** Implemented semantic chunking with overlapping 512-token windows.
-2. **Hybrid Search:** Fused dense vector retrieval (ChromaDB) with sparse keyword matching (BM25) via Reciprocal Rank Fusion (RRF).
-3. **Caching Layer:** Redis cache for frequent queries, dropping P95 latency to sub-100ms.`
+During the internship, I had to submit weekly reports through the BISAG server portal. However, services like WhatsApp, Google Drive, Telegram, and personal Google accounts were not available for sharing files. We sometimes used GitHub as an alternative for transferring files.
+
+This made me think: What if I don't have a pen drive or access to file-sharing platforms, but I need to quickly send a file from one system to another without creating an account?
+
+That problem inspired me to build BurnDrop.
+
+BurnDrop is a temporary file-sharing system where users can upload files up to 1 GB and access them for 3 hours. Users enter their email address and receive a PIN, which can be used to access the uploaded files from another system.
+
+After 3 hours, the files are automatically deleted.
+
+The main goal of BurnDrop is to provide a fast, simple, and temporary way to share files without requiring users to create an account or go through unnecessary steps.`
     },
     {
-      file: "computer-vision-story.txt",
-      title: "Edge Computer Vision for Real-Time Railway Safety",
-      summary: "Deploying lightweight OpenCV models on embedded edge hardware in high-vibration environments.",
-      content: `### Objective
-Perform high-speed track inspection without relying on cloud connectivity.
+      file: "x-automation-story.txt",
+      title: "X (Twitter) Post Automation Pipeline",
+      summary: "Zero-cost AI post generation with Slack human-in-the-loop approval and Playwright automation without paid X API.",
+      content: `The idea for this project came from my frequent use of X for content creation and monetization.
 
-### Engineering Decisions
-1. Model quantization to 8-bit integers for Raspberry Pi TPU acceleration.
-2. Custom image stabilization filter to withstand train vibration.
-3. MQTT event bus for fault messaging.`
+I realized that consistently writing content and manually publishing posts required time and effort. This made me think: What if an AI model could generate posts automatically, send them to me for approval, and publish them on my X account only after I approve them?
+
+Initially, I planned to use the X API for posting. However, I wanted to explore whether I could build the complete automation pipeline without relying on a paid X API.
+
+That is how the X Post Automation project started.
+
+The system uses Cron and systemd to run the automation workflow on an hourly basis. An AI model generates a post, which is sent to Slack for approval or rejection.
+
+If I reject the post, nothing is published. If I approve it, Playwright automatically opens the X workflow and publishes the approved post to my account.
+
+The complete workflow is:
+
+Scheduler → AI Post Generation → Slack Approval → Playwright → X Account
+
+The main goal of this project was to automate the repetitive process of content generation and posting while keeping the final decision in the hands of the user.
+
+The result is a fully automated, zero-cost X posting pipeline that combines AI-generated content, human approval, Slack integration, scheduling, and browser automation without requiring a paid X API.`
+    },
+    {
+      file: "rag-chatbot-story.txt",
+      title: "RAG Chatbot for Financial Services & Architecture Adaptation",
+      summary: "Overcoming 4GB VRAM limits during FinanceParam model quantization via cloud-local hybrid deployment.",
+      content: `The idea for this project started when our mentor assigned us the task of building a RAG Chatbot for Financial Services.
+
+One of the main requirements was to use an Indian financial language model called FinanceParam, available on Hugging Face. FinanceParam is based on the Param-1-2.9B-Instruct model, and the complete model size is approximately 5.76 GB.
+
+The biggest challenge was our system configuration. We were working with an NVIDIA RTX 2050 GPU with only 4 GB of VRAM, which was not sufficient to run the original model efficiently.
+
+To solve this problem, we experimented with quantization using the QLoRA technique. The goal was to reduce the memory requirements and make the model compatible with our available hardware.
+
+Although the quantized model could run more efficiently, we faced another challenge. The model started producing hallucinated and less reliable responses, which affected the overall quality of the RAG chatbot. We realized that reducing the model requirements was solving the hardware problem, but it was also impacting the quality of the results.
+
+Instead of compromising on the original model, we changed our approach.
+
+We stored the original FinanceParam model in Google Drive and used Google Colab to run the backend, where better GPU resources and higher VRAM were available. At the same time, we continued developing and running the frontend locally using VS Code.
+
+Our architecture became:
+
+Frontend on Local System → Backend on Google Colab → Original FinanceParam Model
+
+By separating the frontend and backend, we were able to overcome our local hardware limitations and use the original model without depending entirely on our RTX 2050 GPU.
+
+This project taught us that when a system does not have enough hardware resources to run a large AI model, the solution is not always to reduce the model size. Sometimes, changing the deployment architecture can be a better solution.
+
+What started as a RAG chatbot project eventually became a learning experience involving model quantization, QLoRA, hallucination challenges, hardware limitations, and hybrid cloud-local deployment.`
     }
   ],
 
@@ -189,74 +256,69 @@ Perform high-speed track inspection without relying on cloud connectivity.
     {
       platform: "LeetCode",
       file: "leetcode.txt",
-      rating: "1780+ (Top 10%)",
+      rating: "max (1540)",
       solved: "400+ Problems",
       profile: "https://leetcode.com/u/ravixpanchal/"
     },
     {
-      platform: "HackerRank",
-      file: "hackerrank.txt",
-      rating: "5 Stars in Python & Problem Solving",
-      solved: "100+ Challenges",
-      profile: "https://hackerrank.com"
-    },
-    {
-      platform: "CodeChef",
-      file: "codechef.txt",
-      rating: "3 Star (Max Rating: 1640)",
-      solved: "200+ Contest Problems",
-      profile: "https://codechef.com"
+      platform: "GeeksforGeeks",
+      file: "geeksforgeeks.txt",
+      rating: "Institute Rank #1 (GSV)",
+      solved: "350+ Problems",
+      profile: "https://www.geeksforgeeks.org/profile/ravipanchal"
     }
   ],
 
   achievements: [
     {
-      file: "awards.txt",
-      title: "1st Place Winner - Smart India Hackathon (SIH)",
-      year: "2023",
-      desc: "Led a 6-member team to build an AI-powered automated video surveillance system for railway station safety."
+      file: "rank.txt",
+      title: "Institute Rank 1 (GSV) on GeeksforGeeks",
+      year: "2026",
+      desc: "Achieved Institute Rank 1 (GSV) on GeeksforGeeks by solving over 350+ coding problems on the platform."
     },
     {
-      file: "certifications.txt",
-      title: "AWS Certified Cloud Practitioner",
-      year: "2023",
-      desc: "Validation of foundational cloud architecture, security, and AWS service implementation skills."
+      file: "hackathon.txt",
+      title: "Runner-up - NLDS ULIP Logistics Hackathon 2.0",
+      year: "2024",
+      desc: "Achieved Runner-up position in the NLDS ULIP Logistics Hackathon 2.0, conducted by DPIIT."
     },
     {
       file: "publication.txt",
-      title: "Research Paper: AI-Assisted Medical Image Segmentation",
-      year: "2024",
-      desc: "Published in International Journal of Computer Vision & AI Research."
+      title: "Research Paper: Accident Analysis and Safety Improvements in Indian Railways",
+      year: "2026",
+      desc: "Accident Analysis and Safety Improvements in Indian Railways accepted at ICICST 2026, to appear in SSRN Proceedings (Elsevier)"
     }
   ],
 
   activities: [
     {
       file: "community.txt",
-      title: "Lead Organizer - College Developer Student Club (GDSC)",
-      desc: "Organized 12+ technical workshops on AI, Cloud, and Web Development reaching 500+ student developers."
+      title: "Lead Organizer - CodeStorm Hackathon (Epitome'26 @GSV)",
+      desc: "Organized a three-round hackathon featuring a technical Menti quiz, a HackerRank coding challenge conducted using SEB Browser, and a final vibe-coding round to develop solutions for real-world problem statements."
     },
     {
-      file: "open-source.txt",
-      title: "Open Source Contributor",
-      desc: "Active contributor to popular GitHub repositories in Python and React ecosystems."
+      file: "participation.txt",
+      title: "Club & Event Participation",
+      desc: "Conducted DSA sessions as the Programming Domain Head at Technocrats Club, participated in an Indian Air Force workshop, and built an interactive Power BI dashboard."
     }
   ],
 
   blogs: [
     {
-      file: "ai-trends.txt",
-      title: "Demystifying RAG: From Naive Vector Search to Advanced Hybrid Retrieval",
-      date: "May 2024",
-      readTime: "6 min read",
-      snippet: "Why simple cosine similarity on embeddings isn't enough for production AI, and how hybrid RRF search bridges the gap."
+      file: "hashnode.txt",
+      title: "BharatGen's FinanceParam (Quantized): 5 Real Drawbacks We Found After Using It",
+      date: "Jun 2026 ",
+      readTime: "13 min read",
+      snippet: "An in-depth analysis of five key drawbacks and performance limitations we encountered while experimenting with the quantized version of BharatGen's FinanceParam model.",
+      url: "https://codeandmodels.hashnode.dev/bharatgen-s-financeparam-quantized-5-real-drawbacks-we-found-after-using-it"
     },
     {
-      file: "clean-code.txt",
-      title: "Writing Modular React Engines with Custom Hooks",
-      date: "Feb 2024",
-      readTime: "4 min read",
-      snippet: "Best practices for decoupling stateful terminal interpreters and UI components in modern React apps."
+      file: "pattern.txt",
+      title: "From Basic to Complex: A Deep Dive into C++ Pattern Printing",
+      date: "Jul 2025",
+      readTime: "3 min read",
+      snippet: "Level Up Your Loop Logic with These Pattern Problems.",
+      url: "https://medium.com/@ravixpanchal/from-basic-to-complex-a-deep-dive-into-c-pattern-printing-4878827fd786?sharedUserId=ravixpanchal"
     }
   ]
 };

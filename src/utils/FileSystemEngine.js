@@ -7,17 +7,29 @@ export class FileSystemEngine {
 
   // Normalize path segments into canonical array
   parsePath(currentPath, targetPath) {
-    if (!targetPath || targetPath === '~') return ['~'];
-    if (targetPath === '/') return ['~'];
+    let segments = (!currentPath || currentPath === '~') ? ['~'] : currentPath.split('/');
 
-    let segments = [];
-    if (targetPath.startsWith('~')) {
+    if (!targetPath || targetPath === '.') {
+      return segments;
+    }
+
+    if (targetPath === '~' || targetPath === '~/') {
+      return ['~'];
+    }
+
+    if (targetPath === '/') {
+      return ['~'];
+    }
+
+    if (targetPath.startsWith('~/')) {
+      segments = ['~'];
+      targetPath = targetPath.substring(2);
+    } else if (targetPath.startsWith('~')) {
       segments = ['~'];
       targetPath = targetPath.substring(1);
     } else if (targetPath.startsWith('/')) {
       segments = ['~'];
-    } else {
-      segments = currentPath === '~' ? ['~'] : currentPath.split('/');
+      targetPath = targetPath.substring(1);
     }
 
     const parts = targetPath.split('/').filter(p => p !== '' && p !== '.');
@@ -64,7 +76,7 @@ export class FileSystemEngine {
   }
 
   // Resolve directory object
-  getDirectory(currentPath, targetPath) {
+  getDirectory(currentPath, targetPath = '') {
     const pathArray = this.parsePath(currentPath, targetPath);
     const node = this.getNode(pathArray);
     if (node && node.type === 'dir') {
@@ -75,11 +87,23 @@ export class FileSystemEngine {
 
   // Resolve file object
   getFile(currentPath, targetPath) {
+    if (!targetPath) return null;
     const pathArray = this.parsePath(currentPath, targetPath);
-    const node = this.getNode(pathArray);
+    let node = this.getNode(pathArray);
+
     if (node && node.type === 'file') {
       return { node, path: this.pathToString(pathArray), fileName: pathArray[pathArray.length - 1] };
     }
+
+    // Smart fallback: try appending .txt if file not found
+    if (!node && !targetPath.endsWith('.txt')) {
+      const altPathArray = this.parsePath(currentPath, `${targetPath}.txt`);
+      node = this.getNode(altPathArray);
+      if (node && node.type === 'file') {
+        return { node, path: this.pathToString(altPathArray), fileName: altPathArray[altPathArray.length - 1] };
+      }
+    }
+
     return null;
   }
 
@@ -134,7 +158,7 @@ export class FileSystemEngine {
       return { success: false, error: 'grep: missing search query' };
     }
 
-    let targetDirStr = currentPath;
+    let targetDirStr = '';
     let fileWildcard = '*';
 
     if (pattern.includes('/')) {
@@ -147,7 +171,7 @@ export class FileSystemEngine {
 
     const dirResult = this.getDirectory(currentPath, targetDirStr);
     if (!dirResult) {
-      return { success: false, error: `grep: ${targetDirStr}: No such directory` };
+      return { success: false, error: `grep: ${targetDirStr || currentPath}: No such directory` };
     }
 
     const matches = [];
@@ -208,5 +232,56 @@ export class FileSystemEngine {
     }
 
     return { success: true, results };
+  }
+
+  // Generate structured tree view of file system
+  tree(currentPath = '~', targetPath = '') {
+    const dirResult = this.getDirectory(currentPath, targetPath);
+    if (!dirResult) {
+      return { success: false, error: `tree: ${targetPath || currentPath}: No such directory` };
+    }
+
+    let dirCount = 0;
+    let fileCount = 0;
+
+    const buildTree = (node, prefix = '') => {
+      let lines = [];
+      const content = node.content || {};
+      const keys = Object.keys(content);
+
+      keys.forEach((key, index) => {
+        const isLast = index === keys.length - 1;
+        const connector = isLast ? '└── ' : '├── ';
+        const childPrefix = isLast ? '    ' : '│   ';
+        const item = content[key];
+
+        if (item.type === 'dir') {
+          dirCount++;
+          lines.push({
+            text: `${prefix}${connector}${key}/`,
+            type: 'dir'
+          });
+          const subLines = buildTree(item, prefix + childPrefix);
+          lines = lines.concat(subLines);
+        } else {
+          fileCount++;
+          lines.push({
+            text: `${prefix}${connector}${key}`,
+            type: 'file'
+          });
+        }
+      });
+
+      return lines;
+    };
+
+    const treeLines = buildTree(dirResult.node);
+
+    return {
+      success: true,
+      rootName: dirResult.path,
+      lines: treeLines,
+      stats: { directories: dirCount, files: fileCount }
+    };
   }
 }

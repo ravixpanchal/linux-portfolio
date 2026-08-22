@@ -6,7 +6,7 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
     { label: 'Projects', cmd: 'projects', icon: 'folder_special' },
     { label: 'Skills', cmd: 'skills', icon: 'code' },
     { label: 'Internships', cmd: 'internships', icon: 'work' },
-    { label: 'File Tree', cmd: 'ls', icon: 'account_tree' },
+    { label: 'File Tree', cmd: 'tree', icon: 'account_tree' },
     { label: 'System Metrics', cmd: 'neofetch', icon: 'settings' },
     { label: 'Contact', cmd: 'contact', icon: 'mail' },
     { label: 'Resume', cmd: 'resume', icon: 'description' },
@@ -91,7 +91,7 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
             </div>
 
             <div className="mt-auto pt-4 border-t border-[#502741] text-xs text-[#e0d0d8] font-mono text-center">
-              Ubuntu 22.04 LTS (Portfolio)
+              Ubuntu 26.04 LTS (Portfolio)
             </div>
           </div>
         </div>
