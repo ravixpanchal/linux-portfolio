@@ -1,22 +1,22 @@
 export const portfolioData = {
   personal: {
     name: "Ravi Panchal",
-    title: "Fullstack & AI/ML Engineer",
+    title: "AI/ML Engineer",
     degree: "B.Tech in Artificial Intelligence & Data Science",
     cgpa: "8.42",
-    location: "India",
-    email: "ravi.panchal@example.com",
+    location: "Vadodara, Gujarat",
+    email: "ravi.panchal.kaithi@gmail.com",
     github: "https://github.com/ravixpanchal",
-    linkedin: "https://linkedin.com",
-    resumeUrl: "#",
+    linkedin: "https://www.linkedin.com/in/ravixpanchal/",
+    resumeUrl: "https://drive.google.com/file/d/1VZQqdnq1grzLs0UuJbkqyAxQ4TjemkjR/view?usp=sharing",
     status: "🟢 Available for Full-time Roles & Internships",
-    bio: "Passionate Fullstack & AI/ML engineer focused on building high-performance scalable web applications, RAG pipelines, computer vision systems, and automated data solutions."
+    bio: "Passionate AI/ML engineer focused on building high-performance scalable web applications, RAG pipelines, and automated data solutions."
   },
-  
+
   introduction: `Hi, I'm Ravi Panchal! 🚀
 B.Tech in Artificial Intelligence & Data Science (CGPA: 8.42).
-I build scalable web applications, deep learning computer vision systems, and RAG knowledge engines.
-Currently seeking impactful Software Engineering, Fullstack, or AI/ML roles.
+I build scalable web applications, deep learning based systems, and RAG knowledge engines.
+Currently seeking impactful Software Engineering or AI/ML roles.
 
 Type 'guide' or 'help' to see all available commands!`,
 
@@ -25,41 +25,41 @@ Type 'guide' or 'help' to see all available commands!`,
       id: "bisag-n",
       file: "bisag-n.txt",
       company: "BISAG-N (Bhaskaracharya National Institute for Space Applications and Geo-informatics)",
-      role: "Software Engineering Intern",
-      period: "Jun 2023 - Aug 2023",
+      role: "GEN-AI Intern",
+      period: "May 2026 - Jul 2026",
       location: "Gandhinagar, Gujarat",
-      tech: ["Python", "React", "Django", "PostgreSQL", "RAG", "LangChain"],
+      tech: ["Python", "FastAPI", "HuggingFace", "Docker", "RAG", "LangChain"],
       details: [
-        "Architected an enterprise RAG (Retrieval-Augmented Generation) Knowledge Assistant for multi-format document querying.",
-        "Integrated vector embedding search with Milvus and OpenAI/LLaMA models, reducing document search latency by 70%.",
-        "Developed responsive full-stack admin dashboards with React and Django REST framework for real-time spatial data visualization."
+        "Developed a RAG-based Financial Services Knowledge Assistant using the FinanceParam model for intelligent financial query processing.",
+        "Experimented with QLoRA-based quantization and integrated a Query Optimizer using Qwen2.5-7B via Ollama.",
+        "Built a GST AI Insight platform using the Sarvam API to analyze GST-related financial data and generate AI-driven insights for users."
       ]
     },
     {
       id: "aai",
       file: "aai.txt",
       company: "Airports Authority of India (AAI)",
-      role: "Data Analyst Intern",
-      period: "Jan 2023 - Mar 2023",
-      location: "New Delhi",
-      tech: ["Python", "Pandas", "Scikit-Learn", "Power BI", "SQL"],
+      role: "ML Intern",
+      period: "May 2025 - Jun 2025",
+      location: "Varanasi, UP",
+      tech: ["Python", "Pandas", "Scikit-Learn", "Streamlit", "SQL"],
       details: [
-        "Analyzed historical flight delay records and passenger throughput datasets using Pandas and Scikit-Learn.",
-        "Built predictive models for peak-hour congestion forecasting with 89% accuracy.",
-        "Created executive Power BI dashboards to assist operations management."
+        "Developed and deployed a real-time Server Tracking Website with frontend and backend components, hosted on Render.",
+        "Gained hands-on experience with Linux/Ubuntu system administration and ngrok for secure tunneling and local application exposure.",
+        "Studied the working architecture and implementation concepts behind the DigiYatra facial-recognition system"
       ]
     },
     {
       id: "drm-jhansi",
       file: "drm-jhansi.txt",
       company: "DRM Office Jhansi (Indian Railways)",
-      role: "IT & Automation Intern",
-      period: "Summer 2022",
+      role: "Web Developer Intern",
+      period: "Summer 2024",
       location: "Jhansi, UP",
-      tech: ["C++", "Python", "OpenCV", "MySQL"],
+      tech: ["MySQL", "HTML", "CSS", "JavaScript", "Github"],
       details: [
-        "Digitized legacy track inspection logbooks into automated SQL database workflows.",
-        "Prototyped initial OpenCV computer vision algorithm for automated track defect detection."
+        "Gained hands-on experience in SQL-based data handling, Excel reporting, and HTML web development during industrial training at DRM Jhansi.",
+        "Developed exposure to Indian Railways data systems, operational workflows, and coach maintenance processes."
       ]
     }
   ],
@@ -67,18 +67,18 @@ Type 'guide' or 'help' to see all available commands!`,
   education: [
     {
       file: "btech-aids.txt",
-      institution: "State Technological University",
+      institution: "Gati Shakti Vishwavidyalaya, Vadodara",
       degree: "B.Tech in Artificial Intelligence & Data Science",
-      period: "2020 - 2024",
+      period: "2023 - 2027",
       score: "CGPA: 8.42 / 10.0",
-      courses: ["Data Structures & Algorithms", "Deep Learning", "Natural Language Processing", "Database Systems", "Operating Systems", "Computer Networks"]
+      courses: ["Data Structures & Algorithms", "Machine Learning", "Deep Learning", "Natural Language Processing", "Database Systems", "Operating Systems", "Computer Networks"]
     },
     {
       file: "highschool.txt",
-      institution: "Central School",
-      degree: "Higher Secondary (CBSE Science)",
-      period: "2018 - 2020",
-      score: "Percentage: 92.4%",
+      institution: "S. R. Inter College, Orai",
+      degree: "Higher Secondary (UP Board)",
+      period: "2019 - 2020",
+      score: "Percentage: 88.0%",
       courses: ["Physics", "Chemistry", "Mathematics", "Computer Science"]
     }
   ],
@@ -88,10 +88,10 @@ Type 'guide' or 'help' to see all available commands!`,
       file: "osteoporosis-ai.txt",
       name: "Osteoporosis Detection using AI",
       category: "Computer Vision & Healthcare",
-      stack: ["Python", "TensorFlow", "React", "FastAPI", "OpenCV"],
-      desc: "A deep learning model utilizing Convolutional Neural Networks (ResNet-50) to predict osteoporosis risks from digital X-ray scans with high sensitivity.",
-      githubUrl: "https://github.com/ravixpanchal",
-      liveDemoUrl: "https://github.com/ravixpanchal",
+      stack: ["Python", "PyTorch", "Streamlit", "X-AI", "TorchCAM"],
+      desc: "An advanced AI-driven medical image classification system for osteoporosis detection using female panoramic jaw radiograph. ",
+      githubUrl: "https://github.com/ravixpanchal/OsteoNet-XAI",
+      liveDemoUrl: "https://osteonet-xai-web.streamlit.app/",
       highlights: [
         "94.2% validation accuracy on clinical dataset.",
         "Interactive web dashboard for radiologists to upload X-rays and view heatmap highlights."
@@ -99,12 +99,12 @@ Type 'guide' or 'help' to see all available commands!`,
     },
     {
       file: "railway-safety.txt",
-      name: "Railway Safety & Track Defect Automation",
-      category: "IoT & Computer Vision",
-      stack: ["C++", "OpenCV", "Python", "Raspberry Pi", "MQTT"],
+      name: "Railway Accident Analysis",
+      category: "Data Science",
+      stack: ["ML", "EDA", "Colab", "Streamlit"],
       desc: "Edge-computed real-time track anomaly detector equipped with camera sensors mounted on inspection vehicles.",
-      githubUrl: "https://github.com/ravixpanchal",
-      liveDemoUrl: "https://github.com/ravixpanchal",
+      githubUrl: "https://github.com/ravixpanchal/railway-accident-and-safety-improvements",
+      liveDemoUrl: "https://railway-accident-analysis-eda.streamlit.app/",
       highlights: [
         "Detects track cracks and joint displacement at speeds up to 40 km/h.",
         "Instant alert notifications sent to central control room via MQTT."
@@ -112,12 +112,12 @@ Type 'guide' or 'help' to see all available commands!`,
     },
     {
       file: "x-automation.txt",
-      name: "X (Twitter) Automated Engagement Bot",
-      category: "Automation & NLP",
-      stack: ["Node.js", "Puppeteer", "TypeScript", "OpenAI API"],
+      name: "X (Twitter) Post Automation",
+      category: "Automation",
+      stack: ["NGROK", "Slack", "TypeScript", "CRON"],
       desc: "Smart social media bot for content curation, automated thread summarizing, and sentiment-aware replies.",
-      githubUrl: "https://github.com/ravixpanchal",
-      liveDemoUrl: "https://github.com/ravixpanchal",
+      githubUrl: "https://github.com/ravixpanchal/x-post-automation",
+      liveDemoUrl: "https://github.com/ravixpanchal/x-post-automation",
       highlights: [
         "Handles content scheduling, auto-retweets, and sentiment analysis.",
         "Over 10,000 automated interactions processed with zero account flags."
@@ -179,10 +179,10 @@ Perform high-speed track inspection without relying on cloud connectivity.
   ],
 
   skills: {
-    programming: ["JavaScript (ES6+)", "TypeScript", "Python", "C++", "Java", "SQL", "HTML5/CSS3"],
+    programming: ["Python", "C", "C++", "Java", "SQL", "R", "HTML5/CSS3"],
     ai_ml: ["TensorFlow", "PyTorch", "OpenCV", "Scikit-Learn", "LangChain", "ChromaDB", "Pandas", "NumPy"],
-    web_dev: ["React.js", "Node.js", "Express.js", "Django", "FastAPI", "Tailwind CSS", "REST APIs", "GraphQL"],
-    tools: ["Git & GitHub", "Docker", "AWS (EC2, S3, Lambda)", "Linux (Ubuntu/Bash)", "Postman", "Vercel"]
+    web_dev: ["React.js", "Node.js", "Django", "FastAPI", "Next.js"],
+    tools: ["Git & GitHub", "Docker", "Linux (Ubuntu/Bash)", "Vercel", "Render"]
   },
 
   coding: [
@@ -190,8 +190,8 @@ Perform high-speed track inspection without relying on cloud connectivity.
       platform: "LeetCode",
       file: "leetcode.txt",
       rating: "1780+ (Top 10%)",
-      solved: "450+ Problems",
-      profile: "https://leetcode.com"
+      solved: "400+ Problems",
+      profile: "https://leetcode.com/u/ravixpanchal/"
     },
     {
       platform: "HackerRank",
