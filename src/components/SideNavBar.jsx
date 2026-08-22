@@ -112,17 +112,17 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
 
       {/* Mobile Overlay Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 flex">
+        <div className="md:hidden fixed inset-0 z-[60] flex">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
             onClick={onCloseMobileMenu}
           ></div>
 
           {/* Drawer Content */}
-          <div className="relative w-72 max-w-[85vw] bg-[#1d0316] border-r border-[#502741] h-full pt-14 pb-6 px-4 flex flex-col z-50 shadow-2xl overflow-y-auto animate-slideInLeft">
+          <div className="relative w-72 max-w-[85vw] bg-[#1d0316] border-r border-[#502741] h-full pt-12 pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] px-4 flex flex-col z-[60] shadow-2xl overflow-y-auto animate-slideInLeft">
             {/* Header profile info + Close button */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#502741]">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#502741] shrink-0">
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => {
@@ -141,14 +141,14 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
               </div>
               <button
                 onClick={onCloseMobileMenu}
-                className="w-8 h-8 rounded-lg bg-[#37122b] hover:bg-[#502741] text-[#e0d0d8] hover:text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#37122b] hover:bg-[#502741] text-[#e0d0d8] hover:text-white flex items-center justify-center transition-colors shrink-0"
                 aria-label="Close menu"
               >
                 <span className="material-symbols-outlined text-lg">close</span>
               </button>
             </div>
 
-            <div className="text-xs font-mono text-[#f2b5d6] uppercase tracking-wider mb-2 px-1 font-bold">
+            <div className="text-xs font-mono text-[#f2b5d6] uppercase tracking-wider mb-2 px-1 font-bold shrink-0">
               System Shortcuts
             </div>
 
@@ -168,7 +168,7 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
               ))}
             </div>
 
-            <div className="mt-auto pt-4 border-t border-[#502741] text-xs text-[#e0d0d8] font-mono text-center">
+            <div className="mt-auto pt-4 pb-2 border-t border-[#502741] text-xs text-[#e0d0d8] font-mono text-center shrink-0">
               Ubuntu 26.04 LTS (Portfolio)
             </div>
           </div>
