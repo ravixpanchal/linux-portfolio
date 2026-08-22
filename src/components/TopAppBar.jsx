@@ -23,12 +23,12 @@ export const TopAppBar = ({
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 flex justify-between items-center px-2 sm:px-6 h-11 md:h-12 bg-[#28051e]/90 backdrop-blur-md border-b border-[#502741] text-white select-none">
-      <div className="font-bold text-xs sm:text-sm md:text-base flex items-center gap-1.5 sm:gap-2 font-mono shrink-0">
+    <header className="fixed top-0 w-full z-50 flex justify-between items-center px-2.5 sm:px-6 h-11 md:h-12 bg-[#28051e]/95 backdrop-blur-md border-b border-[#502741] text-white select-none">
+      <div className="font-bold text-xs sm:text-sm md:text-base flex items-center gap-1.5 sm:gap-2.5 font-mono shrink-0">
         <button
           onClick={onToggleMobileMenu}
-          className="md:hidden flex items-center justify-center p-1 rounded text-[#e0d0d8] hover:text-white hover:bg-[#502741] transition-colors"
-          title="Toggle Menu"
+          className="md:hidden flex items-center justify-center w-8 h-8 rounded-md text-[#e0d0d8] hover:text-white hover:bg-[#502741] active:bg-[#603050] transition-colors"
+          title="Toggle Navigation Menu"
           aria-label="Toggle navigation menu"
         >
           <span className="material-symbols-outlined text-xl">
@@ -42,7 +42,7 @@ export const TopAppBar = ({
         {/* ⚡ Recruiter Quick Action Button */}
         <button
           onClick={onOpenRecruiterModal}
-          className="bg-[#e95420] hover:bg-[#c33900] text-white text-[11px] sm:text-xs font-mono font-bold px-2 sm:px-2.5 py-1 rounded-md shadow-md transition-transform active:scale-95 flex items-center gap-1 shrink-0"
+          className="bg-[#e95420] hover:bg-[#c33900] active:scale-95 text-white text-[11px] sm:text-xs font-mono font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-md shadow-md transition-all flex items-center gap-1 shrink-0"
           title="Open 1-Click Executive Recruiter Overview"
         >
           <span className="material-symbols-outlined text-sm">badge</span>
@@ -58,12 +58,13 @@ export const TopAppBar = ({
 
       <div className="flex items-center gap-1.5 sm:gap-3 text-white shrink-0">
         {/* Theme Selector */}
-        <div className="flex items-center gap-1 bg-[#37122b] border border-[#502741] rounded px-1.5 sm:px-2 py-0.5 text-[11px] sm:text-xs font-mono">
+        <div className="flex items-center gap-1 bg-[#37122b] border border-[#502741] rounded-md px-1.5 sm:px-2 py-0.5 text-[11px] sm:text-xs font-mono">
           <span className="material-symbols-outlined text-sm text-[#f2b5d6]">palette</span>
           <select
             value={activeTheme}
             onChange={(e) => onChangeTheme && onChangeTheme(e.target.value)}
-            className="bg-transparent text-white text-[11px] sm:text-xs font-mono outline-none cursor-pointer"
+            className="bg-transparent text-white text-[11px] sm:text-xs font-mono outline-none cursor-pointer pr-1"
+            aria-label="Select Theme"
           >
             <option value="yaru" className="bg-[#28051e]">Yaru Dark</option>
             <option value="matrix" className="bg-[#0d1117]">Matrix</option>
@@ -73,10 +74,10 @@ export const TopAppBar = ({
           </select>
         </div>
 
-        <span className="material-symbols-outlined text-lg sm:text-xl cursor-default text-white hidden sm:inline-block" title="Connected">
+        <span className="material-symbols-outlined text-lg sm:text-xl cursor-default text-[#e0d0d8] hidden sm:inline-block" title="Connected">
           network_wifi
         </span>
-        <span className="material-symbols-outlined text-lg sm:text-xl cursor-default text-white hidden sm:inline-block" title="Battery 100%">
+        <span className="material-symbols-outlined text-lg sm:text-xl cursor-default text-[#e0d0d8] hidden sm:inline-block" title="Battery 100%">
           battery_full
         </span>
       </div>

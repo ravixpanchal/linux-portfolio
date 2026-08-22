@@ -60,32 +60,35 @@ export const CodingStatsWidget = () => {
         </div>
 
         {/* GitHub Key Stats Grid */}
-        <div className="grid grid-cols-3 gap-3 font-mono text-center mb-4">
-          <div className="bg-[#28051e] p-2.5 rounded-lg border border-[#502741]">
-            <div className="text-lg font-bold text-[#8adb4d]">{githubData.publicRepos}</div>
-            <div className="text-[11px] text-[#e0d0d8]">Public Repos</div>
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 font-mono text-center mb-4">
+          <div className="bg-[#28051e] p-2 sm:p-2.5 rounded-lg border border-[#502741]">
+            <div className="text-base sm:text-lg font-bold text-[#8adb4d]">{githubData.publicRepos}</div>
+            <div className="text-[10px] sm:text-[11px] text-[#e0d0d8] truncate">Public Repos</div>
           </div>
-          <div className="bg-[#28051e] p-2.5 rounded-lg border border-[#502741]">
-            <div className="text-lg font-bold text-[#f2b5d6]">{githubData.followers}</div>
-            <div className="text-[11px] text-[#e0d0d8]">Followers</div>
+          <div className="bg-[#28051e] p-2 sm:p-2.5 rounded-lg border border-[#502741]">
+            <div className="text-base sm:text-lg font-bold text-[#f2b5d6]">{githubData.followers}</div>
+            <div className="text-[10px] sm:text-[11px] text-[#e0d0d8] truncate">Followers</div>
           </div>
-          <div className="bg-[#28051e] p-2.5 rounded-lg border border-[#502741]">
-            <div className="text-lg font-bold text-[#ffb59e]">{githubData.following}</div>
-            <div className="text-[11px] text-[#e0d0d8]">Following</div>
+          <div className="bg-[#28051e] p-2 sm:p-2.5 rounded-lg border border-[#502741]">
+            <div className="text-base sm:text-lg font-bold text-[#ffb59e]">{githubData.following}</div>
+            <div className="text-[10px] sm:text-[11px] text-[#e0d0d8] truncate">Following</div>
           </div>
         </div>
 
         {/* GitHub Contributions Heatmap Image */}
         <div>
-          <div className="text-xs font-mono text-[#f2b5d6] font-bold mb-2 flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-sm">grid_view</span>
-            <span>Live GitHub Contribution Activity Calendar</span>
+          <div className="text-xs font-mono text-[#f2b5d6] font-bold mb-2 flex items-center justify-between flex-wrap gap-1">
+            <div className="flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-sm">grid_view</span>
+              <span>Live GitHub Activity Calendar</span>
+            </div>
+            <span className="text-[10px] text-[#ffb59e] font-sans md:hidden">👈 Swipe graph to scroll 👉</span>
           </div>
-          <div className="overflow-x-auto p-2 bg-[#1d0316] rounded-lg border border-[#502741]">
+          <div className="overflow-x-auto p-2 bg-[#1d0316] rounded-lg border border-[#502741] scrollbar-thin touch-pan-x">
             <img
               src={githubData.chartUrl}
               alt="GitHub Contribution Calendar"
-              className="min-w-[650px] w-full filter contrast-125"
+              className="min-w-[600px] sm:min-w-[650px] w-full filter contrast-125"
             />
           </div>
         </div>

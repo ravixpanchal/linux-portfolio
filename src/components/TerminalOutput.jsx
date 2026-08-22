@@ -171,13 +171,13 @@ export const TerminalOutput = ({ output }) => {
         )}
 
         {result?.type === 'help' && (
-          <div className="my-2 max-w-2xl font-mono text-sm">
-            <div className="text-[#f2b5d6] font-bold text-base mb-2">Available System Commands:</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5">
+          <div className="my-2 max-w-2xl font-mono text-xs sm:text-sm">
+            <div className="text-[#f2b5d6] font-bold text-sm sm:text-base mb-2">Available System Commands:</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5">
               {result.commands.map((c, idx) => (
-                <div key={idx} className="flex justify-between items-baseline">
-                  <span className="text-[#8adb4d] font-bold">{c.cmd}</span>
-                  <span className="text-[#e0d0d8] text-xs text-right">{c.desc}</span>
+                <div key={idx} className="flex justify-between items-baseline gap-2">
+                  <span className="text-[#8adb4d] font-bold shrink-0">{c.cmd}</span>
+                  <span className="text-[#e0d0d8] text-[11px] sm:text-xs text-right truncate">{c.desc}</span>
                 </div>
               ))}
             </div>
@@ -185,13 +185,13 @@ export const TerminalOutput = ({ output }) => {
         )}
 
         {result?.type === 'guide' && (
-          <pre className="whitespace-pre-wrap font-mono text-sm text-[#ffffff] leading-relaxed my-2 bg-[#320e26] p-4 rounded-lg border border-[#603050]">
+          <pre className="whitespace-pre-wrap font-mono text-xs sm:text-sm text-[#ffffff] leading-relaxed my-2 bg-[#320e26] p-3 sm:p-4 rounded-lg border border-[#603050]">
             {result.content}
           </pre>
         )}
 
         {result?.type === 'whoami' && (
-          <div className="my-1 font-mono text-sm">
+          <div className="my-1 font-mono text-xs sm:text-sm">
             <span className="text-[#8adb4d] font-bold">{result.user}</span>
             <div className="text-xs text-[#e0d0d8] mt-1">
               ...secretly hoping to be a {result.note} 😉
@@ -200,8 +200,8 @@ export const TerminalOutput = ({ output }) => {
         )}
 
         {result?.type === 'neofetch' && (
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 my-4 bg-[#320e26] p-3 sm:p-4 rounded-lg border border-[#603050] max-w-xl">
-            <div className="ascii-art whitespace-pre text-[#ffb59e] text-[10px] sm:text-xs leading-none select-none font-mono">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6 my-3 bg-[#320e26] p-3 sm:p-4 rounded-lg border border-[#603050] max-w-xl">
+            <div className="ascii-art whitespace-pre text-[#ffb59e] text-[9px] sm:text-xs leading-none select-none font-mono overflow-x-auto max-w-full">
 {`       _..._
      .'     '.
     /  _   _  \\
@@ -210,7 +210,7 @@ export const TerminalOutput = ({ output }) => {
      '. '...' .'
        '-...-'`}
             </div>
-            <div className="font-mono text-xs text-[#ffffff] flex-grow space-y-1">
+            <div className="font-mono text-xs text-[#ffffff] flex-grow space-y-1 w-full">
               <div><span className="text-[#f2b5d6] font-bold text-sm">ravi@portfolio</span></div>
               <div className="text-[#603050] border-b border-[#603050] pb-1">-----------------</div>
               <div><span className="text-[#8adb4d] font-bold">OS</span>: Ubuntu 26.04 LTS (Portfolio Edition)</div>
@@ -233,7 +233,7 @@ export const TerminalOutput = ({ output }) => {
         )}
 
         {result?.type === 'history' && (
-          <div className="font-mono text-sm my-2">
+          <div className="font-mono text-xs sm:text-sm my-2">
             {result.history.length === 0 ? (
               <div className="text-[#e0d0d8]">No command history yet.</div>
             ) : (
@@ -253,13 +253,13 @@ export const TerminalOutput = ({ output }) => {
             {result.data.map((proj, idx) => (
               <div
                 key={idx}
-                className="bg-[#320e26] border border-[#603050] rounded-lg p-4 flex flex-col justify-between hover:border-[#f2b5d6] transition-colors"
+                className="bg-[#320e26] border border-[#603050] rounded-lg p-3.5 sm:p-4 flex flex-col justify-between hover:border-[#f2b5d6] transition-colors"
               >
                 <div>
                   <div className="text-xs text-[#8adb4d] font-bold uppercase tracking-wider mb-1 font-sans">
                     {proj.category}
                   </div>
-                  <div className="text-[#f2b5d6] font-bold text-base mb-2 font-mono">
+                  <div className="text-[#f2b5d6] font-bold text-sm sm:text-base mb-2 font-mono">
                     {proj.name}
                   </div>
                   <p className="text-xs text-[#e0d0d8] leading-relaxed mb-3 font-sans">
@@ -277,12 +277,12 @@ export const TerminalOutput = ({ output }) => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <a
                       href={proj.githubUrl || 'https://github.com/ravixpanchal'}
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-[#502741] hover:bg-[#603050] text-white text-xs font-mono px-3 py-1 rounded border border-[#603050] transition-colors"
+                      className="bg-[#502741] hover:bg-[#603050] text-white text-xs font-mono px-3 py-1.5 rounded border border-[#603050] transition-colors flex-1 sm:flex-initial text-center"
                     >
                       💻 Code
                     </a>
@@ -290,7 +290,7 @@ export const TerminalOutput = ({ output }) => {
                       href={proj.liveDemoUrl || 'https://github.com/ravixpanchal'}
                       target="_blank"
                       rel="noreferrer"
-                      className="bg-[#e95420] hover:bg-[#c33900] text-white text-xs font-mono px-3 py-1 rounded transition-colors"
+                      className="bg-[#e95420] hover:bg-[#c33900] text-white text-xs font-mono px-3 py-1.5 rounded transition-colors flex-1 sm:flex-initial text-center"
                     >
                       🌐 Live Demo
                     </a>

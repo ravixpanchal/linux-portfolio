@@ -162,8 +162,8 @@ export const UbuntuTerminal = ({
 
   return (
     <div className="ubuntu-terminal w-full max-w-[1000px] h-full max-h-full min-h-0 md:h-[600px] rounded-lg md:rounded-xl shadow-2xl flex flex-col overflow-hidden relative">
-      {/* Floating Quick Scroll Controls */}
-      <div className="absolute right-4 top-12 z-40 flex flex-col gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
+      {/* Floating Quick Scroll Controls (Desktop & Tablet) */}
+      <div className="absolute right-3.5 top-12 z-40 hidden sm:flex flex-col gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
         <button
           onClick={handleScrollTop}
           className="bg-[#502741]/90 hover:bg-[#e95420] text-white p-1 rounded-full border border-[#603050] shadow-md transition-all active:scale-95 flex items-center justify-center cursor-pointer"
@@ -201,12 +201,14 @@ export const UbuntuTerminal = ({
       {/* Terminal Header */}
       <div className="terminal-header flex-shrink-0">
         <div className="window-controls">
-          <div className="control-btn close-btn cursor-pointer" title="Close" onClick={onClear}></div>
+          <div className="control-btn close-btn cursor-pointer" title="Clear Terminal" onClick={onClear}></div>
           <div className="control-btn min-btn cursor-pointer" title="Minimize"></div>
           <div className="control-btn max-btn cursor-pointer" title="Maximize"></div>
         </div>
-        <div className="terminal-title text-xs sm:text-sm px-16 truncate max-w-full text-center">
-          visitor@ravi-portfolio: {currentPath}
+        <div className="terminal-title text-[11px] sm:text-sm px-14 sm:px-16 truncate max-w-full text-center">
+          <span className="hidden sm:inline">visitor@ravi-portfolio: </span>
+          <span className="inline sm:hidden font-mono text-[11px]">ravi: </span>
+          <span>{currentPath}</span>
         </div>
       </div>
 
@@ -217,7 +219,7 @@ export const UbuntuTerminal = ({
           onClick={handleTrackClick}
           onTouchStart={handleTrackClick}
           onTouchMove={handleTrackTouchMove}
-          className="absolute right-1 top-11 bottom-11 w-2.5 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center touch-none"
+          className="absolute right-0.5 top-10 bottom-12 w-2 bg-[#1d0316]/90 border border-[#603050] rounded-full z-30 cursor-pointer select-none py-1 flex flex-col items-center touch-none"
           title="Terminal Scroll Indicator"
         >
           <div

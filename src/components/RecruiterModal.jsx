@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { CodingStatsWidget } from './CodingStatsWidget';
 
 export const RecruiterModal = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  const { personal, internships, projects, skills, education } = portfolioData;
+  const { personal, internships, projects, skills } = portfolioData;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-black/75 backdrop-blur-sm animate-fadeIn">
       {/* Modal Container - Styled like a sleek Ubuntu Application Window */}
       <div className="bg-[#28051e] border border-[#603050] text-white w-full max-w-4xl max-h-[92dvh] sm:max-h-[88vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
         
@@ -24,14 +34,14 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={onClose}
-            className="text-[#e0d0d8] hover:text-white hover:bg-[#502741] rounded px-2 py-0.5 text-xs font-mono transition-colors"
+            className="text-[#e0d0d8] hover:text-white hover:bg-[#502741] active:bg-[#603050] rounded px-2 py-1 text-xs font-mono transition-colors shrink-0"
           >
             ✕ Close [Esc]
           </button>
         </div>
 
         {/* Modal Body Content */}
-        <div className="p-4 sm:p-6 overflow-y-auto space-y-6 font-sans">
+        <div className="p-3.5 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 font-sans scrollbar-thin">
           
           {/* Header & Candidate Card */}
           <div className="bg-[#320e26] border border-[#603050] p-4 sm:p-6 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -39,23 +49,23 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
               <div className="inline-block bg-[#499300]/20 text-[#8adb4d] text-xs px-2.5 py-1 rounded-full font-mono font-bold mb-2 border border-[#499300]/40">
                 {personal.status}
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white font-mono">{personal.name}</h2>
-              <p className="text-[#f2b5d6] text-sm sm:text-base font-semibold mt-0.5">{personal.title}</p>
-              <p className="text-xs text-[#e0d0d8] mt-1 font-mono">{personal.degree} | CGPA: {personal.cgpa}</p>
+              <h2 className="text-xl sm:text-3xl font-bold text-white font-mono">{personal.name}</h2>
+              <p className="text-[#f2b5d6] text-xs sm:text-base font-semibold mt-0.5">{personal.title}</p>
+              <p className="text-[11px] sm:text-xs text-[#e0d0d8] mt-1 font-mono">{personal.degree} | CGPA: {personal.cgpa}</p>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3 w-full md:w-auto">
               <a
                 href={personal.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-[#e95420] hover:bg-[#c33900] text-white text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-1.5 shadow-lg transition-colors font-mono"
+                className="bg-[#e95420] hover:bg-[#c33900] text-white text-xs font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-lg transition-colors font-mono flex-1 md:flex-initial"
               >
                 <span className="material-symbols-outlined text-sm">download</span>
                 Download Resume
               </a>
               <a
                 href={`mailto:${personal.email}`}
-                className="bg-[#502741] hover:bg-[#603050] text-white text-xs font-bold px-4 py-2.5 rounded-lg flex items-center gap-1.5 border border-[#603050] transition-colors font-mono"
+                className="bg-[#502741] hover:bg-[#603050] text-white text-xs font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg flex items-center justify-center gap-1.5 border border-[#603050] transition-colors font-mono flex-1 md:flex-initial"
               >
                 <span className="material-symbols-outlined text-sm">mail</span>
                 Email Candidate
@@ -64,26 +74,26 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">
-            <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
-              <div className="text-xs text-[#e0d0d8]">Education</div>
-              <div className="text-base font-bold text-[#8adb4d] mt-1">B.Tech AI & DS</div>
-              <div className="text-[11px] text-[#9c8d93]">CGPA 8.42</div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 font-mono text-center">
+            <div className="bg-[#320e26] border border-[#603050] p-2.5 sm:p-3 rounded-lg">
+              <div className="text-[11px] sm:text-xs text-[#e0d0d8]">Education</div>
+              <div className="text-xs sm:text-base font-bold text-[#8adb4d] mt-1 truncate">B.Tech AI & DS</div>
+              <div className="text-[10px] sm:text-[11px] text-[#9c8d93]">CGPA 8.42</div>
             </div>
-            <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
-              <div className="text-xs text-[#e0d0d8]">Experience</div>
-              <div className="text-base font-bold text-[#f2b5d6] mt-1">3 Internships</div>
-              <div className="text-[11px] text-[#9c8d93]">AI-ML , Gen-AI</div>
+            <div className="bg-[#320e26] border border-[#603050] p-2.5 sm:p-3 rounded-lg">
+              <div className="text-[11px] sm:text-xs text-[#e0d0d8]">Experience</div>
+              <div className="text-xs sm:text-base font-bold text-[#f2b5d6] mt-1 truncate">3 Internships</div>
+              <div className="text-[10px] sm:text-[11px] text-[#9c8d93]">AI-ML , Gen-AI</div>
             </div>
-            <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
-              <div className="text-xs text-[#e0d0d8]">LeetCode</div>
-              <div className="text-base font-bold text-[#ffb59e] mt-1">392 Solved</div>
-              <div className="text-[11px] text-[#9c8d93]">Rating: 1,422 (#324k Rank)</div>
+            <div className="bg-[#320e26] border border-[#603050] p-2.5 sm:p-3 rounded-lg">
+              <div className="text-[11px] sm:text-xs text-[#e0d0d8]">LeetCode</div>
+              <div className="text-xs sm:text-base font-bold text-[#ffb59e] mt-1 truncate">392 Solved</div>
+              <div className="text-[10px] sm:text-[11px] text-[#9c8d93]">Rating: 1,422</div>
             </div>
-            <div className="bg-[#320e26] border border-[#603050] p-3 rounded-lg">
-              <div className="text-xs text-[#e0d0d8]">GeeksforGeeks</div>
-              <div className="text-base font-bold text-white mt-1">Institution Rank</div>
-              <div className="text-[11px] text-[#8adb4d]">Institution Rank #1</div>
+            <div className="bg-[#320e26] border border-[#603050] p-2.5 sm:p-3 rounded-lg">
+              <div className="text-[11px] sm:text-xs text-[#e0d0d8]">GeeksforGeeks</div>
+              <div className="text-xs sm:text-base font-bold text-white mt-1 truncate">Institute Rank</div>
+              <div className="text-[10px] sm:text-[11px] text-[#8adb4d]">Rank #1</div>
             </div>
           </div>
 
