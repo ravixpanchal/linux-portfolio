@@ -12,9 +12,10 @@ An interactive, high-fidelity, web-based **Ubuntu Linux Desktop & Terminal Portf
 ## 🌟 Key Features
 
 - 🐧 **Ubuntu Linux Terminal Simulator**: Custom command line engine with UNIX utility emulation (`ls`, `cd`, `cat`, `pwd`, `clear`, `grep`, `find`, `tree`, `man`, `history`, `whoami`, `neofetch`).
+- ❓ **Dedicated Help & Command Shortcuts**: 1-Click Help access buttons in the quick action bar, terminal header window, side dock, and desktop shortcuts.
 - 🎨 **Multiple Terminal Color Themes**: On-the-fly theme switching (`yaru`, `matrix`, `dracula`, `nord`, `cyberpunk`).
 - 📁 **Interactive Virtual File System (VFS)**: Hierarchical folder structure representing portfolio sections (Bio, Projects, Experience, Skills, Education, Achievements, Blogs).
-- 👔 **1-Click Recruiter Fast-Track View**: Clean graphical overlay modal for instant, non-command navigation.
+- 👔 **1-Click Recruiter Fast-Track View**: Clean graphical overlay modal for instant, non-command navigation with live profile avatar.
 - 📊 **Live Coding Stats & Heatmap**: Integrated widget displaying GitHub activity and LeetCode problem-solving stats.
 - ⚡ **Command Autocomplete & Suggestions**: Interactive tab key completion, syntax highlighting, and clickable quick-command chips.
 - 📜 **Command History**: Cycle through prior execution history using `Up` and `Down` arrow keys.
@@ -113,6 +114,8 @@ An interactive, high-fidelity, web-based **Ubuntu Linux Desktop & Terminal Portf
 
 ```
 Linux-Style-Portfolio/
+├── public/
+│   └── avatar.jpg             # Profile avatar image
 ├── src/
 │   ├── components/            # React UI Components
 │   │   ├── CodingStatsWidget.jsx    # Live GitHub/LeetCode stats & heatmap
