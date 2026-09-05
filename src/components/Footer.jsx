@@ -25,6 +25,14 @@ export const Footer = ({ onExecuteCommand }) => {
         >
           LinkedIn
         </a>
+        <a
+          href={portfolioData.personal.linktree || 'https://linktr.ee/ravi.panchal'}
+          target="_blank"
+          rel="noreferrer"
+          className="text-white hover:text-[#8adb4d] transition-colors py-1 px-1.5 rounded active:bg-[#502741]"
+        >
+          Linktree
+        </a>
         <button
           onClick={() => onExecuteCommand('resume')}
           className="text-[#8adb4d] hover:underline font-bold py-1 px-1.5 rounded active:bg-[#502741] cursor-pointer"

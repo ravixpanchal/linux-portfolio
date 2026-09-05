@@ -8,6 +8,7 @@ export const portfolioData = {
     email: "ravi.panchal.kaithi@gmail.com",
     github: "https://github.com/ravixpanchal",
     linkedin: "https://www.linkedin.com/in/ravixpanchal/",
+    linktree: "https://linktr.ee/ravi.panchal",
     resumeUrl: "https://drive.google.com/file/d/1AHDVBgfkWsYFV7-XVrv1GK4BgdhAxERD/view?usp=sharing",
     status: "🟢 Available for Full-time Roles & Internships",
     bio: "Passionate AI/ML engineer focused on building high-performance scalable web applications, RAG pipelines, and automated data solutions."

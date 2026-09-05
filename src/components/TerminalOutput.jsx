@@ -398,6 +398,7 @@ export const TerminalOutput = ({ output }) => {
             <div className="text-white">📧 Email: <a href={`mailto:${result.data.email}`} className="text-[#8adb4d] underline font-bold">{result.data.email}</a></div>
             <div className="text-white">🐙 GitHub: <a href={result.data.github} target="_blank" rel="noreferrer" className="text-[#f2b5d6] underline font-bold">{result.data.github}</a></div>
             <div className="text-white">💼 LinkedIn: <a href={result.data.linkedin} target="_blank" rel="noreferrer" className="text-[#ffb59e] underline font-bold">{result.data.linkedin}</a></div>
+            <div className="text-white">🌲 Linktree: <a href={result.data.linktree || 'https://linktr.ee/ravi.panchal'} target="_blank" rel="noreferrer" className="text-[#8adb4d] underline font-bold">{result.data.linktree || 'https://linktr.ee/ravi.panchal'}</a></div>
           </div>
         )}
 

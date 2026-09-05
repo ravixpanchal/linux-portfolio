@@ -45,7 +45,7 @@ export const initialFileSystem = {
           },
           'contact_summary.txt': {
             type: 'file',
-            content: `Email: ${portfolioData.personal.email}\nGitHub: ${portfolioData.personal.github}\nLinkedIn: ${portfolioData.personal.linkedin}`
+            content: `Email: ${portfolioData.personal.email}\nGitHub: ${portfolioData.personal.github}\nLinkedIn: ${portfolioData.personal.linkedin}\nLinktree: ${portfolioData.personal.linktree}`
           }
         }
       },
