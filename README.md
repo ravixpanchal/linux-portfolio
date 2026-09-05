@@ -1,47 +1,47 @@
 # 💻 Linux-Style Terminal Portfolio | Ravi Panchal
 
-An interactive, responsive, web-based **Ubuntu Linux Terminal Portfolio** built with **React 19**, **Vite**, and **Tailwind CSS**. Designed for developers, recruiters, and tech enthusiasts who appreciate a sleek command-line interface paired with modern web capabilities.
+An interactive, high-fidelity, web-based **Ubuntu Linux Desktop & Terminal Portfolio** built with **React 19**, **Vite**, and **Tailwind CSS**. Designed for engineering managers, recruiters, developers, and tech enthusiasts who appreciate a sleek Linux terminal interface paired with modern visual web capabilities.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ---
 
 ## 🌟 Key Features
 
-- 🐧 **Full Linux Terminal Simulator**: Interactive custom shell with support for standard UNIX-like commands (`ls`, `cd`, `cat`, `pwd`, `clear`, `grep`, `find`, `echo`, `mkdir`, `touch`, `rm`, `sudo`, etc.).
-- 📁 **Virtual File System**: Complete directory tree representing portfolio sections (About, Projects, Experience, Skills, Education, Certifications).
-- 👔 **Recruiter Fast-Track Mode**: Accessible UI modal for quick navigation without needing to type terminal commands.
-- ⚡ **Auto-suggestions & Command Autocomplete**: Command completion with `Tab` key and interactive suggestion chips.
-- 📜 **Command History**: Navigate command history easily with `Up` and `Down` arrow keys.
-- 📊 **Live Coding Stats**: Integrated LeetCode, GitHub, and competitive programming statistics widget.
-- 🟢 **Matrix Rain Animation**: Toggleable cool Matrix digital rain background canvas effect.
-- 📱 **Fully Responsive Layout**: Designed to work seamlessly across desktops, tablets, and mobile devices.
-- 🖥️ **Ubuntu Desktop UI**: Authentically crafted top navigation bar, side dock, desktop icons, and customizable terminal window.
+- 🐧 **Ubuntu Linux Terminal Simulator**: Custom command line engine with UNIX utility emulation (`ls`, `cd`, `cat`, `pwd`, `clear`, `grep`, `find`, `tree`, `man`, `history`, `whoami`, `neofetch`).
+- 🎨 **Multiple Terminal Color Themes**: On-the-fly theme switching (`yaru`, `matrix`, `dracula`, `nord`, `cyberpunk`).
+- 📁 **Interactive Virtual File System (VFS)**: Hierarchical folder structure representing portfolio sections (Bio, Projects, Experience, Skills, Education, Achievements, Blogs).
+- 👔 **1-Click Recruiter Fast-Track View**: Clean graphical overlay modal for instant, non-command navigation.
+- 📊 **Live Coding Stats & Heatmap**: Integrated widget displaying GitHub activity and LeetCode problem-solving stats.
+- ⚡ **Command Autocomplete & Suggestions**: Interactive tab key completion, syntax highlighting, and clickable quick-command chips.
+- 📜 **Command History**: Cycle through prior execution history using `Up` and `Down` arrow keys.
+- 🟢 **Matrix Digital Rain Canvas**: Toggleable matrix background animation effect.
+- 📱 **Responsive & Mobile Ready**: Desktop experience with adaptive quick-action bars for mobile screens.
+- 🎁 **Secret Easter Eggs**: Try running `sudo hire ravi`!
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Tech Stack & Architecture
 
-- **Frontend**: React 19, JSX
-- **Styling**: Tailwind CSS v4, PostCSS, Autoprefixer
+- **Framework**: React 19 (JSX)
+- **Styling**: Tailwind CSS v4, PostCSS, Custom Yaru Design System
 - **Build Tool**: Vite 8
-- **Icons**: Lucide React
+- **Icons**: Lucide React & Material Symbols
+- **State & VFS**: Custom React Hooks & Virtual File System Engine
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these steps to set up and run the project locally on your machine.
-
 ### Prerequisites
 
-- **Node.js**: v18.0.0 or higher
-- **npm** or **yarn**
+- **Node.js**: `v18.0.0` or higher
+- **npm**: `v9.0.0` or higher
 
-### Installation
+### Local Setup Instructions
 
 1. **Clone the repository:**
    ```bash
@@ -54,60 +54,95 @@ Follow these steps to set up and run the project locally on your machine.
    npm install
    ```
 
-3. **Start the development server:**
+3. **Launch the development server:**
    ```bash
    npm run dev
    ```
-   Open `http://localhost:5173` in your browser to explore the terminal portfolio.
+   Open `http://localhost:5173` in your web browser.
 
 4. **Build for production:**
    ```bash
    npm run build
    ```
 
-5. **Preview production build:**
+5. **Preview the production build:**
    ```bash
    npm run preview
    ```
 
 ---
 
-## 🎮 Terminal Commands
+## 🎮 Command Reference
 
-Here are some of the key terminal commands available in the interface:
-
-| Command | Description |
-| :--- | :--- |
-| `help` / `guide` | Display list of available commands and usage guide |
-| `ls [-l]` | List files and directories |
-| `cd <dir>` | Change directory |
-| `cat <file>` | Display content of a file |
-| `pwd` | Print current working directory |
-| `clear` | Clear the terminal screen |
-| `matrix` | Toggle the Matrix rain background effect |
-| `stats` | View live coding profile statistics |
-| `recruiter` | Open the interactive Recruiter / GUI overview modal |
-| `theme` | Toggle terminal color theme |
-| `sudo` | Special permission command (Easter egg) |
+| Command | Category | Description |
+| :--- | :--- | :--- |
+| `help` | General | Display full command directory and usage tips |
+| `guide` | General | Step-by-step interactive portfolio walkthrough |
+| `recruiter` | Navigation | Launch executive visual overview modal |
+| `theme [yaru\|matrix\|dracula\|nord\|cyberpunk]` | Customization | Switch terminal color theme palette |
+| `matrix` | Visuals | Toggle Matrix green digital rain background effect |
+| `ls [dir]` | Navigation | List files and folders in directory |
+| `cd <dir>` | Navigation | Change working directory (`cd ..`, `cd ~`, `cd projects`) |
+| `pwd` | Navigation | Print absolute path of current working directory |
+| `cat <file>` | Files | Output contents of a file or project details card |
+| `grep [-i] "query"` | Files | Search pattern strings across virtual files |
+| `find [name]` | Files | Recursively search files and directories |
+| `tree [dir]` | Files | Display recursive directory tree visualization |
+| `man <cmd>` | Help | View manual pages for specific unix commands |
+| `intro` | Portfolio | Display personal summary & background |
+| `projects` | Portfolio | View technical projects & live repository links |
+| `internships` | Portfolio | View work experience & industrial training |
+| `skills` | Portfolio | Display AI/ML, Programming, and Tool technical stack |
+| `education` | Portfolio | Display academic profile & degree details |
+| `stories` | Portfolio | Read engineering project deep-dives & architecture |
+| `coding` / `stats` | Portfolio | View live GitHub & LeetCode profile analytics |
+| `achievements` | Portfolio | View awards, certifications, and research publications |
+| `activities` | Portfolio | View leadership & community roles |
+| `blogs` | Portfolio | View technical write-ups and publications |
+| `resume` | Portfolio | Display resume summary and direct download link |
+| `contact` | Portfolio | Display contact links (Email, LinkedIn, GitHub) |
+| `neofetch` | System | Output system information with ASCII art logo |
+| `whoami` | System | Print active user session role |
+| `history` | System | View session command execution history |
+| `clear` | System | Clear terminal screen output buffer |
+| `sudo hire ravi` | Easter Egg | Trigger recruitment response animation |
 
 ---
 
 ## 📂 Project Structure
 
 ```
-linux-portfolio/
+Linux-Style-Portfolio/
 ├── src/
-│   ├── components/       # UI components (Ubuntu Terminal, Recruiter Modal, Top Bar, Dock, etc.)
-│   ├── data/             # Portfolio content and virtual filesystem data
-│   ├── hooks/            # Custom React hooks (useTerminal)
-│   ├── utils/            # Command processor, filesystem engine, API helpers
-│   ├── App.jsx           # Main application root component
-│   ├── index.css         # Global CSS styles & Tailwind configuration
-│   └── main.jsx          # Entry point
-├── index.html            # Single page HTML entry
-├── tailwind.config.js    # Tailwind configuration
-├── vite.config.js        # Vite build tool setup
-└── package.json          # Project dependencies & npm scripts
+│   ├── components/            # React UI Components
+│   │   ├── CodingStatsWidget.jsx    # Live GitHub/LeetCode stats & heatmap
+│   │   ├── CommandSuggestions.jsx   # Quick command chips & suggestion bar
+│   │   ├── DesktopIcons.jsx         # Ubuntu desktop background icons
+│   │   ├── Footer.jsx               # Bottom system status bar & links
+│   │   ├── MatrixRain.jsx           # Matrix digital rain canvas renderer
+│   │   ├── RecruiterModal.jsx       # Graphical GUI overlay modal
+│   │   ├── SideNavBar.jsx           # Desktop left docked launcher
+│   │   ├── TerminalInput.jsx        # Command prompt input line with autocomplete
+│   │   ├── TerminalOutput.jsx       # Specialized command output renderers
+│   │   ├── TopAppBar.jsx            # Ubuntu header with live clock & status indicators
+│   │   └── UbuntuTerminal.jsx       # Main draggable/resizable window wrapper
+│   ├── data/                  # Virtual File System & Portfolio Datasets
+│   │   ├── portfolioData.js         # Bio, projects, experience, skills data
+│   │   └── virtualFileSystem.js     # VFS node tree definitions
+│   ├── hooks/                 # Custom React Hooks
+│   │   └── useTerminal.js           # Terminal state, input history, themes & execution
+│   ├── utils/                 # Core Business Logic & Command Engines
+│   │   ├── CommandProcessor.js      # Parser & execution engine for commands
+│   │   ├── FileSystemEngine.js      # Virtual File System traversal engine
+│   │   └── codingStatsApi.js        # API fetch logic for coding profiles
+│   ├── App.jsx                # Main Application Frame Component
+│   ├── index.css              # Global Yaru design tokens & CSS resets
+│   └── main.jsx               # Application Entry Point
+├── index.html                 # HTML Root Entry
+├── tailwind.config.js         # Tailwind CSS v4 Configuration
+├── vite.config.js             # Vite Build Tool Configuration
+├── DESIGN.md                  # Comprehensive Design System Specification
+└── package.json               # Dependencies & NPM Scripts
 ```
 
 ---
@@ -115,7 +150,7 @@ linux-portfolio/
 ## 👤 Author
 
 **Ravi Panchal**
-- **Title**: AI/ML Engineer
+- **Role**: AI/ML Engineer & Full Stack Developer
 - **GitHub**: [@ravixpanchal](https://github.com/ravixpanchal)
 - **LinkedIn**: [Ravi Panchal](https://www.linkedin.com/in/ravixpanchal/)
 
@@ -123,4 +158,4 @@ linux-portfolio/
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
