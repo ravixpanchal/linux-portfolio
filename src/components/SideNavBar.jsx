@@ -58,11 +58,11 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
         <div ref={popoverRef} className="mt-auto mb-3 relative group shrink-0">
           <button
             onClick={() => setPopoverOpen(!popoverOpen)}
-            className="w-10 h-10 rounded-full bg-[#502741] hover:bg-[#603050] active:scale-95 border-2 border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shadow-lg transition-all cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#502741] hover:bg-[#603050] active:scale-95 border-2 border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shadow-lg transition-all cursor-pointer overflow-hidden"
             title="Ravi Panchal - AI-ML Engineer Profile"
             aria-label="Toggle Ravi Panchal Profile Overview"
           >
-            RP
+            <img src="/avatar.jpg" alt="Ravi Panchal" className="w-full h-full object-cover" />
           </button>
 
           {/* Popover Profile Card on Click / Hover */}
@@ -70,8 +70,8 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
             popoverOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto'
           }`}>
             <div className="flex items-center gap-3 pb-2 mb-2.5 border-b border-[#502741]">
-              <div className="w-10 h-10 rounded-full bg-[#502741] border border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shrink-0 shadow">
-                RP
+              <div className="w-10 h-10 rounded-full bg-[#502741] border border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shrink-0 shadow overflow-hidden">
+                <img src="/avatar.jpg" alt="Ravi Panchal" className="w-full h-full object-cover" />
               </div>
               <div className="overflow-hidden">
                 <p className="font-bold text-sm text-white font-mono truncate">Ravi Panchal</p>
@@ -129,10 +129,10 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
                     if (onOpenRecruiterModal) onOpenRecruiterModal();
                     if (onCloseMobileMenu) onCloseMobileMenu();
                   }}
-                  className="w-10 h-10 rounded-full bg-[#502741] border border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shadow shrink-0 cursor-pointer active:scale-95"
+                  className="w-10 h-10 rounded-full bg-[#502741] border border-[#f2b5d6] flex items-center justify-center font-bold text-sm text-white shadow shrink-0 cursor-pointer active:scale-95 overflow-hidden"
                   title="Open Recruiter Overview"
                 >
-                  RP
+                  <img src="/avatar.jpg" alt="Ravi Panchal" className="w-full h-full object-cover" />
                 </button>
                 <div>
                   <p className="font-bold text-sm text-white font-mono">Ravi Panchal</p>

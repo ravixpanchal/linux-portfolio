@@ -45,13 +45,20 @@ export const RecruiterModal = ({ isOpen, onClose }) => {
           
           {/* Header & Candidate Card */}
           <div className="bg-[#320e26] border border-[#603050] p-4 sm:p-6 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-              <div className="inline-block bg-[#499300]/20 text-[#8adb4d] text-xs px-2.5 py-1 rounded-full font-mono font-bold mb-2 border border-[#499300]/40">
-                {personal.status}
+            <div className="flex items-center gap-4">
+              <img
+                src={personal.avatar || "/avatar.jpg"}
+                alt={personal.name}
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#f2b5d6] object-cover shadow-xl shrink-0"
+              />
+              <div>
+                <div className="inline-block bg-[#499300]/20 text-[#8adb4d] text-xs px-2.5 py-1 rounded-full font-mono font-bold mb-2 border border-[#499300]/40">
+                  {personal.status}
+                </div>
+                <h2 className="text-xl sm:text-3xl font-bold text-white font-mono">{personal.name}</h2>
+                <p className="text-[#f2b5d6] text-xs sm:text-base font-semibold mt-0.5">{personal.title}</p>
+                <p className="text-[11px] sm:text-xs text-[#e0d0d8] mt-1 font-mono">{personal.degree} | CGPA: {personal.cgpa}</p>
               </div>
-              <h2 className="text-xl sm:text-3xl font-bold text-white font-mono">{personal.name}</h2>
-              <p className="text-[#f2b5d6] text-xs sm:text-base font-semibold mt-0.5">{personal.title}</p>
-              <p className="text-[11px] sm:text-xs text-[#e0d0d8] mt-1 font-mono">{personal.degree} | CGPA: {personal.cgpa}</p>
             </div>
             <div className="flex flex-wrap gap-2 sm:gap-3 w-full md:w-auto">
               <a
