@@ -16,13 +16,13 @@ export const CommandSuggestions = ({
 
   const suggestions = [
     { label: '⚡ Recruiter Mode', cmd: 'recruiter', icon: 'badge', highlight: true },
-    { label: '❓ Help', cmd: 'help', icon: 'help_center', helpHighlight: true },
     { label: 'projects', cmd: 'projects', icon: 'folder_special' },
     { label: 'resume', cmd: 'resume', icon: 'description' },
     { label: 'skills', cmd: 'skills', icon: 'code' },
     { label: 'internships', cmd: 'internships', icon: 'work' },
     { label: 'contact', cmd: 'contact', icon: 'mail' },
-    { label: 'clear', cmd: 'clear', icon: 'cleaning_services' }
+    { label: 'clear', cmd: 'clear', icon: 'cleaning_services' },
+    { label: '❓ Help', cmd: 'help', icon: 'help_center', helpHighlight: true }
   ];
 
   const checkScrollability = useCallback(() => {
