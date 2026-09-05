@@ -107,6 +107,19 @@ Type 'guide' or 'help' to see all available commands!`,
 
   projects: [
     {
+      file: "burn-drop.txt",
+      name: "Temporary File Sharing",
+      category: "Web Development",
+      stack: ["Next.js", "Python", "PostgreSQL", "Redis", "Google Drive API", "Resend", "Render", "Vercel", "Docker"],
+      desc: "An open-source, passwordless temporary file sharing platform. Share files up to 1 GB with secure one-time PIN codes, ZIP bundling, and auto-deletion. Built with Next.js, FastAPI, PostgreSQL, Redis, and Google Drive API.",
+      githubUrl: "https://github.com/ravixpanchal/BurnDrop",
+      liveDemoUrl: "https://burn-drop.vercel.app/",
+      highlights: [
+        "BurnDrop is an open-source, passwordless, one-time temporary file sharing platform.",
+        "Upload single or multiple files up to 1 GB total, receive a secure one-time PIN code, share it anywhere — no account required."
+      ]
+    },
+    {
       file: "osteoporosis-ai.txt",
       name: "Osteoporosis Detection using AI",
       category: "Computer Vision & Healthcare",

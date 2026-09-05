@@ -84,28 +84,13 @@ export const initialFileSystem = {
 
       'projects': {
         type: 'dir',
-        content: {
-          'osteoporosis-ai.txt': {
+        content: portfolioData.projects.reduce((acc, proj) => {
+          acc[proj.file] = {
             type: 'file',
-            content: formatProjectContent(portfolioData.projects[0])
-          },
-          'railway-safety.txt': {
-            type: 'file',
-            content: formatProjectContent(portfolioData.projects[1])
-          },
-          'x-automation.txt': {
-            type: 'file',
-            content: formatProjectContent(portfolioData.projects[2])
-          },
-          'gst-ai-insights.txt': {
-            type: 'file',
-            content: formatProjectContent(portfolioData.projects[3])
-          },
-          'rag-assistant.txt': {
-            type: 'file',
-            content: formatProjectContent(portfolioData.projects[4])
-          }
-        }
+            content: formatProjectContent(proj)
+          };
+          return acc;
+        }, {})
       },
 
       'project-stories': {
