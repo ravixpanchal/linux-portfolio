@@ -146,19 +146,6 @@ Type 'guide' or 'help' to see all available commands!`,
       ]
     },
     {
-      file: "railway-safety.txt",
-      name: "Railway Accident Analysis",
-      category: "Data Science",
-      stack: ["ML", "EDA", "Colab", "Streamlit"],
-      desc: "Built an interactive Streamlit dashboard to analyze 3,859 European railway accidents across 31 countries , identifying safety patterns, causes, and risk factors.",
-      githubUrl: "https://github.com/ravixpanchal/railway-accident-and-safety-improvements",
-      liveDemoUrl: "https://railway-accident-analysis-eda.streamlit.app/",
-      highlights: [
-        "Identified the exact causes of railway accidents to help prevent similar incidents and improve safety.",
-        "Published a research paper based on the project and its findings."
-      ]
-    },
-    {
       file: "gst-ai-insights.txt",
       name: "GST AI Insights & Analytics Dashboard",
       category: "Web & FinTech AI",
@@ -169,6 +156,19 @@ Type 'guide' or 'help' to see all available commands!`,
       highlights: [
         "Calculates GSTR-3B return penalties and applicable fines based on the uploaded return details.",
         "Generates a detailed report covering all key financial parameters, insights, and trends."
+      ]
+    },
+    {
+      file: "railway-safety.txt",
+      name: "Railway Accident Analysis",
+      category: "Data Science",
+      stack: ["ML", "EDA", "Colab", "Streamlit"],
+      desc: "Built an interactive Streamlit dashboard to analyze 3,859 European railway accidents across 31 countries , identifying safety patterns, causes, and risk factors.",
+      githubUrl: "https://github.com/ravixpanchal/railway-accident-and-safety-improvements",
+      liveDemoUrl: "https://railway-accident-analysis-eda.streamlit.app/",
+      highlights: [
+        "Identified the exact causes of railway accidents to help prevent similar incidents and improve safety.",
+        "Published a research paper based on the project and its findings."
       ]
     },
     {
