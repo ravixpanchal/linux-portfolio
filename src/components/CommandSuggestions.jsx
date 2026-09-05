@@ -20,7 +20,6 @@ export const CommandSuggestions = ({
     { label: 'resume', cmd: 'resume', icon: 'description' },
     { label: 'skills', cmd: 'skills', icon: 'code' },
     { label: 'internships', cmd: 'internships', icon: 'work' },
-    { label: 'matrix', cmd: 'matrix', icon: 'terminal' },
     { label: 'contact', cmd: 'contact', icon: 'mail' },
     { label: 'clear', cmd: 'clear', icon: 'cleaning_services' }
   ];
