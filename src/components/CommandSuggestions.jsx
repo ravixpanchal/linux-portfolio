@@ -16,6 +16,7 @@ export const CommandSuggestions = ({
 
   const suggestions = [
     { label: '⚡ Recruiter Mode', cmd: 'recruiter', icon: 'badge', highlight: true },
+    { label: '❓ Help', cmd: 'help', icon: 'help_center', helpHighlight: true },
     { label: 'projects', cmd: 'projects', icon: 'folder_special' },
     { label: 'resume', cmd: 'resume', icon: 'description' },
     { label: 'skills', cmd: 'skills', icon: 'code' },
@@ -179,7 +180,13 @@ export const CommandSuggestions = ({
           <button
             key={idx}
             onClick={() => handleSuggestionClick(item.cmd)}
-            className={`${item.highlight ? 'bg-[#e95420] text-white font-bold' : 'bg-[#37122b] text-[#e0d0d8]'} border border-[#603050] px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1 sm:gap-1.5 shrink-0 active:scale-95 shadow-sm cursor-pointer min-h-[36px]`}
+            className={`${
+              item.highlight
+                ? 'bg-[#e95420] text-white font-bold'
+                : item.helpHighlight
+                ? 'bg-[#502741] text-[#8adb4d] font-bold border-[#8adb4d]/60 hover:border-[#8adb4d]'
+                : 'bg-[#37122b] text-[#e0d0d8]'
+            } border border-[#603050] px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs hover:bg-[#502741] hover:text-white transition-all font-mono flex items-center gap-1 sm:gap-1.5 shrink-0 active:scale-95 shadow-sm cursor-pointer min-h-[36px]`}
           >
             <span className="material-symbols-outlined text-sm">{item.icon}</span>
             <span>{item.label}</span>

@@ -5,7 +5,7 @@ export const SideNavBar = ({ onExecuteCommand, mobileMenuOpen, onCloseMobileMenu
   const popoverRef = useRef(null);
 
   const menuItems = [
-    { label: 'Terminal Home', cmd: 'help', icon: 'terminal', primary: true },
+    { label: 'Help / Commands', cmd: 'help', icon: 'help', primary: true },
     { label: 'Projects', cmd: 'projects', icon: 'folder_special' },
     { label: 'Skills', cmd: 'skills', icon: 'code' },
     { label: 'Internships', cmd: 'internships', icon: 'work' },

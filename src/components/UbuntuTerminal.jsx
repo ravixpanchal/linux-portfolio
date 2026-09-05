@@ -199,17 +199,25 @@ export const UbuntuTerminal = ({
       </div>
 
       {/* Terminal Header */}
-      <div className="terminal-header flex-shrink-0">
+      <div className="terminal-header flex-shrink-0 flex items-center justify-between px-3 relative">
         <div className="window-controls">
           <div className="control-btn close-btn cursor-pointer" title="Clear Terminal" onClick={onClear}></div>
           <div className="control-btn min-btn cursor-pointer" title="Minimize"></div>
           <div className="control-btn max-btn cursor-pointer" title="Maximize"></div>
         </div>
-        <div className="terminal-title text-[11px] sm:text-sm px-14 sm:px-16 truncate max-w-full text-center">
+        <div className="terminal-title text-[11px] sm:text-sm px-2 truncate max-w-full text-center flex-1">
           <span className="hidden sm:inline">visitor@ravi-portfolio: </span>
           <span className="inline sm:hidden font-mono text-[11px]">ravi: </span>
           <span>{currentPath}</span>
         </div>
+        <button
+          onClick={() => onExecuteCommand('help')}
+          className="bg-[#502741] hover:bg-[#8adb4d] hover:text-[#11050E] text-[#8adb4d] text-[10px] sm:text-xs font-mono font-bold px-2 py-0.5 rounded border border-[#8adb4d]/40 transition-colors flex items-center gap-1 cursor-pointer shrink-0 z-10"
+          title="Show all available terminal commands"
+        >
+          <span className="material-symbols-outlined text-xs">help</span>
+          <span className="hidden sm:inline font-mono">Help</span>
+        </button>
       </div>
 
       {/* 🚀 Custom Visible Touch Scrollbar Overlay */}

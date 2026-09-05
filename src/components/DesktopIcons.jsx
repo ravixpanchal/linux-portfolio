@@ -38,6 +38,13 @@ export const DesktopIcons = ({ onExecuteCommand, onOpenRecruiterModal }) => {
       action: () => onExecuteCommand('github')
     },
     {
+      id: 'help',
+      name: 'Help.desktop',
+      icon: 'help',
+      color: 'bg-purple-600',
+      action: () => onExecuteCommand('help')
+    },
+    {
       id: 'terminal',
       name: 'Terminal.app',
       icon: 'terminal',
