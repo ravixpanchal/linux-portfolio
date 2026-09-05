@@ -108,15 +108,28 @@ Type 'guide' or 'help' to see all available commands!`,
   projects: [
     {
       file: "burn-drop.txt",
-      name: "Temporary File Sharing",
+      name: "Burn-Drop",
       category: "Web Development",
       stack: ["Next.js", "Python", "PostgreSQL", "Redis", "Google Drive API", "Resend", "Render", "Vercel", "Docker"],
-      desc: "An open-source, passwordless temporary file sharing platform. Share files up to 1 GB with secure one-time PIN codes, ZIP bundling, and auto-deletion. Built with Next.js, FastAPI, PostgreSQL, Redis, and Google Drive API.",
+      desc: "Open-source, passwordless file sharing with secure one-time PINs and auto-deletion. Share files up to 1 GB with ZIP bundling.",
       githubUrl: "https://github.com/ravixpanchal/BurnDrop",
       liveDemoUrl: "https://burn-drop.vercel.app/",
       highlights: [
         "BurnDrop is an open-source, passwordless, one-time temporary file sharing platform.",
         "Upload single or multiple files up to 1 GB total, receive a secure one-time PIN code, share it anywhere — no account required."
+      ]
+    },
+    {
+      file: "x-automation.txt",
+      name: "X (Twitter) Post Automation",
+      category: "Automation",
+      stack: ["NGROK", "Slack", "TypeScript", "CRON"],
+      desc: "Developed an automated AI-powered X (Twitter) posting pipeline with interactive Slack approval, using Playwright and systemd without requiring a paid X API.",
+      githubUrl: "https://github.com/ravixpanchal/x-post-automation",
+      liveDemoUrl: "https://github.com/ravixpanchal/x-post-automation",
+      highlights: [
+        "Eliminated the need for a paid X (Twitter) API by using browser automation with Playwright.",
+        "Published posts automatically only after receiving user approval through Slack."
       ]
     },
     {
@@ -143,19 +156,6 @@ Type 'guide' or 'help' to see all available commands!`,
       highlights: [
         "Identified the exact causes of railway accidents to help prevent similar incidents and improve safety.",
         "Published a research paper based on the project and its findings."
-      ]
-    },
-    {
-      file: "x-automation.txt",
-      name: "X (Twitter) Post Automation",
-      category: "Automation",
-      stack: ["NGROK", "Slack", "TypeScript", "CRON"],
-      desc: "Developed an automated AI-powered X (Twitter) posting pipeline with interactive Slack approval, using Playwright and systemd without requiring a paid X API.",
-      githubUrl: "https://github.com/ravixpanchal/x-post-automation",
-      liveDemoUrl: "https://github.com/ravixpanchal/x-post-automation",
-      highlights: [
-        "Eliminated the need for a paid X (Twitter) API by using browser automation with Playwright.",
-        "Published posts automatically only after receiving user approval through Slack."
       ]
     },
     {
